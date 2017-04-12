@@ -1,0 +1,45 @@
+html {
+  text-align: center;
+}
+
+
+.wrap {
+  margin: 0 auto;
+  text-align: center;
+  width: 900px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#app {
+  display: inline-block;
+  text-align: center;
+}
+
+.AvatarSelector {
+  display: inline-block;
+    text-align: center;
+}
+
+.avatar {
+  display: inline-block;
+  padding: 20px;
+  vertical-align: middle;
+  width: 300px;
+}
+.avatar p {
+  font-size: 24px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+button {
+  vertical-align: middle;
+}
+
+.LevelCounter p {
+  display: inline-block;
+  padding: 30px;
+}
