@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "scripts": {
+    "build": "browserify src/main.js -t babelify -o bundle.js",
+    "watch": "watchexec -w src --exts js -- npm run build"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0"
+  },
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  }
+}
