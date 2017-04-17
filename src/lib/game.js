@@ -1,9 +1,13 @@
 let player = require('./player');
 
+const counter = 0;
+
 const game = {
+  id: "",
   playerList: [],
-  nextTurn: "playerID",
-  
+  activePlayer: null,
+  nextPlayer: null,
+
   saveGame: function() {
     localStorage.setItem("previousGame",this.currentGame);
   },
