@@ -7,6 +7,7 @@ const game = {
   playerList: [],
   activePlayer: null,
   nextPlayer: null,
+  winner: null,
 
   saveGame: function() {
     localStorage.setItem("previousGame",this.currentGame);
