@@ -1,8 +1,9 @@
 let React =  require('react');
 let ReactDOM = require('react-dom');
+let App = require('./components/App');
 let AvatarSelector = require('./components/AvatarSelector');
-let LevelCounter = require('./components/LevelCounter');
-let PlayerBadge = require('./components/PlayerBadge');
+//let LevelCounter = require('./components/LevelCounter');
+let CurrentPlayerModal = require('./components/CurrentPlayerModal');
 
 
 
@@ -17,6 +18,6 @@ let PlayerBadge = require('./components/PlayerBadge');
 // )
 
 ReactDOM.render (
-    <PlayerBadge />,
-    document.getElementById('app')
+    <App />,
+    document.getElementById('content')
 )
