@@ -1,21 +1,13 @@
 let React =  require('react');
 
 class LevelCounter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentAvatar: 1,
-      currentPlayer: this.props.currentPlayer
-    };
-
-  }
 
   render() {
     return (
       <div className="LevelCounter">
         <h3>{this._setLevelTypeTitle()}</h3>
         <button className="level_down" onClick={this.clickHandler("decrease").bind(this)}>-</button>
-        <p>{this.state.currentPlayer[this.props.levelType]}</p>
+        <p>{this.props.currentPlayer[this.props.levelType]}</p>
         <button className="level_up" onClick={this.clickHandler("increase").bind(this)}>+</button>
       </div>
     )
@@ -25,8 +17,8 @@ class LevelCounter extends React.Component {
     let lvlType = this._setToUpperCase();
 
     return function() {
-      this.state.currentPlayer[action + lvlType]();
-      this.state.currentPlayer.updateCombatLevel();
+      this.props.currentPlayer[action + lvlType]();
+      this.props.currentPlayer.updateCombatLevel();
       this.props.notify();
     };
   }
