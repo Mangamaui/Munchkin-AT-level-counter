@@ -1,9 +1,6 @@
 let player = require('./player');
 
-const counter = 0;
-
 const game = {
-  id: "",
   playerList: [],
   activePlayer: null,
   nextPlayer: null,
@@ -51,9 +48,7 @@ const game = {
 
 
 module.exports.create = function() {
-  let newGame = Object.assign({}, game);
-  newGame.id = counter+1;
-  return newGame;
+  return Object.assign({}, game);
 };
 
 module.exports.save = function(game) {
