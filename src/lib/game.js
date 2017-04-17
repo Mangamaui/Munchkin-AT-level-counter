@@ -9,18 +9,6 @@ const game = {
   nextPlayer: null,
   winner: null,
 
-  saveGame: function() {
-    localStorage.setItem("previousGame",this.currentGame);
-  },
-  loadGame: function() {
-    if(!localStorage.getItem("previousGame")) {
-      let msg = "There was no previous game saved";
-    } else {
-      let previousGame = localStorage.getItem("previousGame");
-
-      this.currentGame.playerList = previousGame.playerList;
-    }
-  },
   addPlayerToGame: function(obj){
     if(this.playerList.length < 6) {
       let newPlayer = player.create();
@@ -66,4 +54,16 @@ module.exports.create = function() {
   let newGame = Object.assign({}, game);
   newGame.id = counter+1;
   return newGame;
+};
+
+module.exports.save = function(game) {
+  localStorage.setItem("previousGame", JSON.stringify(game));
+};
+
+module.exports.load = function() {
+  if(!localStorage.getItem("previousGame")) {
+    return false;
+  } else {
+    let previousGame = JSON.parse(localStorage.getItem("previousGame"));
+  }
 };
