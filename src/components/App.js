@@ -43,6 +43,7 @@ class App extends React.Component {
           break;
 
         case 3:
+          viewToShow = this._loadWinnerView;
           break;
 
         default:
@@ -58,7 +59,7 @@ class App extends React.Component {
       <div className="test">
       <p>Start a new game or load an old one to get your game started!</p>
       <button className="start-btn" onClick={this.clickHandler.bind(this)}>Start Game</button>
-      <button className="load-btn">Load Game</button>
+      <button className="load-btn" onClick={this._loadGame.bind(this)}>Load Game</button>
       </div>
     )
   }
@@ -71,6 +72,9 @@ class App extends React.Component {
         <button className="start-btn" onClick={this.nextView.bind(this)}>Start the game</button>
       </div>
     )
+  }
+
+  _loadPreviousGameView(){
   }
 
 
@@ -102,10 +106,29 @@ class App extends React.Component {
     )
   }
 
+  _loadWinnerView() {
+    let playerLoad = this._loadActivePlayer();
+    return (
+      <div>
+      <h2>{playerLoad.name} is the winner!!!</h2>
+        <PlayerBadge currentPlayer={playerLoad} />
+      </div>
+    )
+  }
+
   clickHandler() {
     this.setState({currentGame: game.create()});
   }
 
+  _saveGame() {
+    console.log("saving...");
+    game.save(this.state.currentGame);
+  }
+
+  _loadGame() {
+    console.log("loading...");
+    game.load();
+  }
 
   nextView() {
     if(this.state.currentGame.winner === null){
