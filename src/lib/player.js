@@ -1,4 +1,4 @@
-const counter = 0;
+let counter = 0;
 
 const player = {
   id: "Player",
@@ -38,6 +38,7 @@ const player = {
 
 module.exports.create = function() {
   let newPlayer = Object.assign({}, player);
-  newPlayer.id = counter+1;
+  counter++;
+  newPlayer.id = counter;
   return newPlayer;
 };
