@@ -8,7 +8,7 @@ class CurrentPlayerModal extends React.Component {
     super(props);
 
     this.state = {
-      currentAvatar: null,
+      currentGame: props.currentGame
     };
 
   }
@@ -18,19 +18,21 @@ class CurrentPlayerModal extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentPlayer);
     const notify = this.notify.bind(this);
 
     return (
-      <div className="CurrentPlayerModal">
+      <div className="CurrentPlayerModal" onClick={this.clickHandler.bind(this)}>
         <h2>{this.props.currentPlayer.name}</h2>
         <img src={this._getAvatar()} />
-        <p>{this.props.currentPlayer.tablePosition}</p>
         <LevelCounter levelType="characterLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
         <LevelCounter levelType="gearLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
         <p>CombatLevel: {this.props.currentPlayer.combatLevel}</p>
       </div>
     );
+  }
+
+  clickHandler(e) {
+    this.state.currentGame.checkIfActivePlayerWins();
   }
 
   _getAvatar() {
