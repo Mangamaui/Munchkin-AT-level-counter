@@ -33,7 +33,6 @@ const game = {
     }
   },
   updateActivePlayer: function() {
-    console.log("active player: " + this.activePlayer);
     if(this.activePlayer === null) {
       this.activePlayer = 1;
       this.nextPlayer = 2;
