@@ -42,6 +42,9 @@ class App extends React.Component {
           viewToShow = this._loadPlayerModal;
           break;
 
+        case 3:
+          break;
+
         default:
           viewToShow = this._loadNewGameView;
       }
@@ -80,39 +83,39 @@ class App extends React.Component {
       <div>
         {list}
         <button>Start Playing!</button>
+        <button>Save Game</button>
       </div>
     )
   }
 
   _loadPlayerModal() {
-    let activePlayer = this.state.currentGame.activePlayer;
 
-    console.log("-->", activePlayer);
-
-    let playerLoad = this.state.currentGame.playerList.find(function(player){
-      console.log(player);
-      return player.tablePosition === activePlayer;
-    })
+    console.log(this.state.currentGame);
 
     return (
       <div>
-        <CurrentPlayerModal currentPlayer={playerLoad} />
-        <button className="nextTurnBtn" onClick={this.nextView.bind(this)}>End turn</button>
+        <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
+        <button className="nextTurn-btn" onClick={this.nextView.bind(this)}>End turn</button>
+        <button className="save-btn" onClick={this._saveGame.bind(this)}>Save Game</button>
       </div>
     )
   }
 
   clickHandler() {
     this.setState({currentGame: game.create()});
-    console.log(this.state.currentGame);
   }
+
 
   nextView() {
-    this.state.currentGame.updateActivePlayer();
-
-    this.setState({nextView: 2});
+    if(this.state.currentGame.winner === null){
+      this.state.currentGame.updateActivePlayer();
+      this.setState({nextView: 2});
+    } else {
+      this.setState({nextView: 3});
+    }
 
   }
+
 }
 
 
