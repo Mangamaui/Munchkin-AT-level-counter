@@ -45,13 +45,22 @@ const game = {
           this.nextPlayer++;
         }
     }
+  },
 
-    console.log("active player after: " + this.activePlayer);
-    console.log("next player: " + this.nextPlayer);
+  checkIfActivePlayerWins: function() {
+    let activePlayer = this.activePlayer;
+    let currentPlayer = this.playerList.find(function(player){
+      return player.tablePosition === activePlayer;
+    });
+
+    if(currentPlayer.characterLevel === 10) {
+      this.winner = currentPlayer.id;
+      return true;
+    } else {
+      return false;
+    }
   }
 }
-
-
 
 
 module.exports.create = function() {
