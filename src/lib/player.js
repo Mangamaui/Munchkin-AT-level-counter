@@ -9,7 +9,7 @@ const player = {
   gearLevel: 0,
   combatLevel: 0,
 
-  setPlayer: function(obj) {
+  updatePlayer: function(obj) {
     Object.assign(this, obj);
   },
   updateCombatLevel: function() {
