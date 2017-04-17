@@ -32,7 +32,6 @@ class PlayerCreator extends React.Component {
   }
 
   clickHandler(e) {
-    //console.log(this.state.avatarSelector.state.currentAvatar);
     let game = this.props.currentGame;
     let limit = game.addPlayerToGame({
       name: this.state.playerName,
@@ -43,7 +42,6 @@ class PlayerCreator extends React.Component {
     if(limit) {
       this.setState({disabled: true});
     }
-    console.log(game);
   }
 }
 
