@@ -1,35 +1,34 @@
-let React =  require('react');
+let React = require('React');
 let player = require('../lib/player');
-let LevelCounter = require('./LevelCounter');
+let AvatarList = require('../lib/avatars').AvatarList;
+
 
 class PlayerBadge extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-
-    this.state = {
-      currentAvatar: 1,
-      currentPlayer: player.create()
-    };
-
-    this.state.currentPlayer.setPlayer({name:"Claudia", tablePosition:1, characterLevel:0, gearLevel:0});
-  }
-
-  notify() {
-    this.forceUpdate();
   }
 
   render() {
-    const notify = this.notify.bind(this);
-
     return (
       <div className="PlayerBadge">
-        <h2>{this.state.currentPlayer.name}</h2>
-        <p>{this.state.currentPlayer.tablePosition}</p>
-        <LevelCounter levelType="characterLevel" currentPlayer={this.state.currentPlayer} notify={notify} />
-        <LevelCounter levelType="gearLevel" currentPlayer={this.state.currentPlayer} notify={notify} />
-        <p>{this.state.currentPlayer.combatLevel}</p>
+        <p className="playerName"><b>{this.props.currentPlayer.name}</b></p>
+        <img className="playerAvatar" src={this._getAvatar()} height="300px"/>
+        <p>Character Level:<br /><span>{this.props.currentPlayer.characterLevel}</span></p>
       </div>
-    );
+    )
+  }
+
+  _getAvatar() {
+    let id = this.props.currentPlayer.avatar;
+    let image = null;
+
+    AvatarList.forEach(function(avatar) {
+      if(avatar.id === id) {
+         image = avatar.image;
+      }
+    });
+
+    return image;
   }
 }
 
