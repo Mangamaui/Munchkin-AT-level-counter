@@ -89,6 +89,7 @@ class App extends React.Component {
   }
 
   _loadPlayerModal() {
+    let playerLoad = this._loadActivePlayer();
 
     console.log(this.state.currentGame);
 
@@ -116,6 +117,12 @@ class App extends React.Component {
 
   }
 
+  _loadActivePlayer() {
+    let activePlayer = this.state.currentGame.activePlayer;
+    return this.state.currentGame.playerList.find(function(player){
+      return player.tablePosition === activePlayer;
+    })
+  }
 }
 
 
