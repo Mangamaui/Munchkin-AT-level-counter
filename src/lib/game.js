@@ -59,6 +59,14 @@ module.exports.load = function() {
   if(!localStorage.getItem("previousGame")) {
     return false;
   } else {
-    let previousGame = JSON.parse(localStorage.getItem("previousGame"));
+    return JSON.parse(localStorage.getItem("previousGame"));
   }
+};
+
+module.exports.removeSaveGame = function() {
+  localStorage.clear();
+};
+
+module.exports.reset = function() {
+
 };
