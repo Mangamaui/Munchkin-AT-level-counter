@@ -87,7 +87,6 @@ class App extends React.Component {
       <div>
         {list}
         <button>Start Playing!</button>
-        <button>Save Game</button>
       </div>
     )
   }
@@ -101,7 +100,6 @@ class App extends React.Component {
       <div>
         <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
         <button className="nextTurn-btn" onClick={this.nextView.bind(this)}>End turn</button>
-        <button className="save-btn" onClick={this._saveGame.bind(this)}>Save Game</button>
       </div>
     )
   }
@@ -120,11 +118,6 @@ class App extends React.Component {
     this.setState({currentGame: game.create()});
   }
 
-  _saveGame() {
-    console.log("saving...");
-    game.save(this.state.currentGame);
-  }
-
   _loadGame() {
     console.log("loading...");
     game.load();
@@ -133,6 +126,8 @@ class App extends React.Component {
   nextView() {
     if(this.state.currentGame.winner === null){
       this.state.currentGame.updateActivePlayer();
+      console.log("saving...");
+      game.save(this.state.currentGame);
       this.setState({nextView: 2});
     } else {
       this.setState({nextView: 3});
