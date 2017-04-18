@@ -120,7 +120,13 @@ class App extends React.Component {
 
   _loadGame() {
     console.log("loading...");
-    game.load();
+    let load = game.load();
+    if(load) {
+      this.state.currentGame = load;
+      this.setState({nextView: 1});
+    } else {
+      console.log("No savegame was found");
+    }
   }
 
   nextView() {
