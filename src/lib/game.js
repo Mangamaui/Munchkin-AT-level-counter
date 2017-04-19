@@ -5,6 +5,7 @@ const game = {
   activePlayer: null,
   nextPlayer: null,
   winner: null,
+  saveGame: false,
 
   addPlayerToGame: function(obj){
     if(this.playerList.length < 6) {
@@ -18,9 +19,11 @@ const game = {
     }
   },
   updateActivePlayer: function() {
-    if(this.activePlayer === null) {
+    if(this.activePlayer === null && !this.saveGame) {
       this.activePlayer = 1;
       this.nextPlayer = 2;
+    } else if (this.saveGame) {
+        console.log(this.saveGame);
     } else {
         this.activePlayer = this.nextPlayer;
         if((this.nextPlayer+1) > this.playerList.length) {
@@ -48,6 +51,7 @@ const game = {
 
 
 module.exports.create = function() {
+  game.playerList = [];
   return Object.assign({}, game);
 };
 
