@@ -63,14 +63,17 @@ module.exports.load = function() {
   if(!localStorage.getItem("previousGame")) {
     return false;
   } else {
-    return JSON.parse(localStorage.getItem("previousGame"));
+    let unmergedSaveGame = JSON.parse(localStorage.getItem("previousGame"));
+    let mergedSaveGame =  Object.assign({}, game, unmergedSaveGame);
+    mergedSaveGame.saveGame = true;
+    mergedSaveGame.playerList = mergedSaveGame.playerList.map(function(p) {
+      return Object.assign({}, player.playerObj, p);
+    });
+
+    return mergedSaveGame;
   }
 };
 
 module.exports.removeSaveGame = function() {
   localStorage.clear();
-};
-
-module.exports.reset = function() {
-
 };
