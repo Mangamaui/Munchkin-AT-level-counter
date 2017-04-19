@@ -42,6 +42,9 @@ class PlayerCreator extends React.Component {
     if(limit) {
       this.setState({disabled: true});
     }
+
+    this.props.notify();
+
   }
 }
 
