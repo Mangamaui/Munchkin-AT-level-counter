@@ -35,6 +35,7 @@ const player = {
   }
 };
 
+module.exports.playerObj = player;
 
 module.exports.create = function() {
   let newPlayer = Object.assign({}, player);
