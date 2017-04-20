@@ -1,5 +1,6 @@
 let React = require('react');
 let AvatarSelector = require('./AvatarSelector');
+let UpdateAvailableAvatars = require('../lib/avatars').UpdateAvailableAvatars;
 let player = require('../lib/player');
 
 class PlayerCreator extends React.Component {
@@ -38,6 +39,8 @@ class PlayerCreator extends React.Component {
       avatar: this.state.avatarSelector.state.currentAvatar,
       tablePosition: (this.state.tablePosition+=1)
     });
+
+    UpdateAvailableAvatars(this.state.avatarSelector.state.currentAvatar);
 
     if(limit) {
       this.setState({disabled: true});
