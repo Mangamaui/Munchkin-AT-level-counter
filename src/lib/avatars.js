@@ -47,6 +47,14 @@ const avatarList = [
   }
 ];
 
+const availableAvatarList = avatarList.slice();
+
 module.exports = {
-  AvatarList: avatarList
+  AvatarList: availableAvatarList,
+  UpdateAvailableAvatars: function(id) {
+    let index = avatarList.findIndex(avatar => avatar.id === id);
+
+    availableAvatarList.splice(index,1);
+    console.log(availableAvatarList);
+  }
 }
