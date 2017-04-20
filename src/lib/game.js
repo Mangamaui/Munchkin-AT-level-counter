@@ -22,15 +22,13 @@ const game = {
     if(this.activePlayer === null && !this.saveGame) {
       this.activePlayer = 1;
       this.nextPlayer = 2;
-    } else if (this.saveGame) {
-        console.log(this.saveGame);
-    } else {
-        this.activePlayer = this.nextPlayer;
-        if((this.nextPlayer+1) > this.playerList.length) {
-          this.nextPlayer = 1;
-        } else {
-          this.nextPlayer++;
-        }
+    } else if (this.activePlayer && !this.saveGame ) {
+      this.activePlayer = this.nextPlayer;
+      if((this.nextPlayer+1) > this.playerList.length) {
+        this.nextPlayer = 1;
+      } else {
+        this.nextPlayer++;
+      }
     }
   },
 
