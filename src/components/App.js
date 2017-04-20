@@ -119,8 +119,6 @@ class App extends React.Component {
   _activePlayerView() {
     let playerLoad = this._loadActivePlayer();
 
-    //console.log(this.state.currentGame);
-
     return (
       <div>
         <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
@@ -160,7 +158,6 @@ class App extends React.Component {
   }
 
   loadGameHandler() {
-    console.log("loading...");
     let load = game.load();
 
     if(load) {
@@ -180,8 +177,6 @@ class App extends React.Component {
   nextViewHandler() {
     if(this.state.currentGame.winner === null && !this.state.currentGame.saveGame){
       this.state.currentGame.updateActivePlayer();
-      console.log("saving...");
-      console.log(this.state.currentGame);
       game.save(this.state.currentGame);
       this.setState({nextView: 2});
     } else if(this.state.currentGame.winner === null && this.state.currentGame.saveGame){
