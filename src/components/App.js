@@ -21,6 +21,7 @@ class App extends React.Component {
 
   notify() {
     this.checkPlayerMinimum();
+    this.forceUpdate();
   }
 
   render() {
@@ -98,7 +99,7 @@ class App extends React.Component {
         <p>Start by adding new players to your game session:</p>
         <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
         <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
-        <button className="start-btn" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled} >Start the game</button>
+        <button className="start-btn" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
       </div>
     )
   }
