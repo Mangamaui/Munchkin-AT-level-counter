@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  @include helsinki();
+  background-image: url('../../assets/images/background-blurred.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  color: white;
+  text-rendering: optimizeLegibility;
+
+  #content {
+    padding: 10px;
+    text-align: center;
+
+  }
+}
