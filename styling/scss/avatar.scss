@@ -1,0 +1,18 @@
+@mixin avatar($border, $height, $width) {
+  border-width: $border;
+  border-color: $medium-gray;
+  border-style: solid;
+  border-radius: 50%;
+  height: $height;
+  width: $width;
+}
+
+.avatar {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 15px;
+
+  img {
+    @include avatar(5px, 100px, 100px);
+  }
+}
