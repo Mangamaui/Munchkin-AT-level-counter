@@ -1,0 +1,33 @@
+@mixin button () {
+  @include bahiana(1.5rem);
+  height: 48px;
+  border: 4px solid black;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.primary__button {
+  @include button();
+  background-color: $red;
+  color: white;
+  width: 300px;
+}
+
+.secundary__button {
+  @include button();
+  background-color: $green;
+  color: white;
+  width: 300px;
+}
+
+.tertiary__button {
+  @include button();
+  background-color: $yellow;
+  color: white;
+  font-size: 2.2rem;
+  width: 48px;
+
+  span {
+    display: none;
+  }
+}
