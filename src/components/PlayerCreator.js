@@ -11,7 +11,6 @@ class PlayerCreator extends React.Component {
       avatarSelector: null,
       tablePosition: 0,
       disabled: false
-
     };
   }
 
@@ -20,8 +19,8 @@ class PlayerCreator extends React.Component {
       <div className="PlayerCreator">
         <input type="text" id="playerName" placeholder="Add player name" onChange={this.changeHandler.bind(this)}/>
         <AvatarSelector ref={c => this.state.avatarSelector = c} />
-        <button className="add-player-btn" onClick={this.clickHandler.bind(this)}
-          disabled={this.state.disabled}>Add another player</button>
+        <button className="add-player-btn secundary__button" onClick={this.clickHandler.bind(this)}
+          disabled={this.state.disabled}>Add player</button>
       </div>
     )
   }
@@ -36,18 +35,17 @@ class PlayerCreator extends React.Component {
     let game = this.props.currentGame;
     let limit = game.addPlayerToGame({
       name: this.state.playerName,
-      avatar: this.state.avatarSelector.state.currentAvatar,
+      avatar: this.state.avatarSelector.state.selectedAvatarID,
       tablePosition: (this.state.tablePosition+=1)
     });
 
-    UpdateAvailableAvatars(this.state.avatarSelector.state.currentAvatar);
+    UpdateAvailableAvatars(this.state.avatarSelector.state.selectedAvatarID);
 
-    if(limit) {
+    if (limit) {
       this.setState({disabled: true});
     }
 
     this.props.notify();
-
   }
 }
 

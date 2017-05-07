@@ -1,43 +1,53 @@
 let React =  require('react');
-let AvatarList = require('../lib/avatars').AvatarList;
+let AvatarList = require('../lib/avatars').AvailableAvatarList;
 
 class AvatarSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentAvatar: 1
+      shownAvatarIndex: 1,
+      selectedAvatarID: AvatarList[0].id
     };
   }
 
   render() {
     return (
       <div className="AvatarSelector">
-        <button className="previous-btn" onClick={this._previousAvatar.bind(this)}>previous</button>
+        <button className="previous-btn tertiary__button" onClick={this._previousAvatar.bind(this)}><i className="icon icon-arrow-left-thick"></i><span>previous</span></button>
           <div className="avatar">
-            <img src={AvatarList[this.state.currentAvatar-1].image} height="300px"/>
-            <p><b>{AvatarList[this.state.currentAvatar-1].name}</b></p>
+            <img src={AvatarList[this.state.shownAvatarIndex-1].image} />
+            <p><b>{AvatarList[this.state.shownAvatarIndex-1].name}</b></p>
           </div>
-        <button className="next-btn" onClick={this._nextAvatar.bind(this)}>next</button>
+        <button className="next-btn tertiary__button" onClick={this._nextAvatar.bind(this)}><i className="icon icon-arrow-right-thick"></i><span>next</span></button>
       </div>
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({selectedAvatarID: AvatarList[0].id});
+  }
+
   _nextAvatar() {
-    if (this.state.currentAvatar === AvatarList.length) {
+    if (this.state.shownAvatarIndex === AvatarList.length) {
       //disable button or cycle back to first
-      this.setState({currentAvatar: 1});
+      this.setState({shownAvatarIndex: 1}, () => this._updateSelectedAvatar());
     } else {
-      this.setState({currentAvatar: this.state.currentAvatar+1});
+      this.setState({shownAvatarIndex: this.state.shownAvatarIndex+1}, () => this._updateSelectedAvatar());
     }
   }
 
   _previousAvatar() {
-    if (this.state.currentAvatar === 1) {
+    if (this.state.shownAvatarIndex === 1) {
       //disable button or cycle back to last
-      this.setState({currentAvatar: AvatarList.length });
+      this.setState({shownAvatarIndex: AvatarList.length }, () => this._updateSelectedAvatar());
     } else {
-      this.setState({currentAvatar: this.state.currentAvatar -1});
+      this.setState({shownAvatarIndex: this.state.shownAvatarIndex -1}, () => this._updateSelectedAvatar());
     }
+  }
+
+  _updateSelectedAvatar() {
+    let id = AvatarList[this.state.shownAvatarIndex-1].id;
+    this.setState({selectedAvatarID: id });
   }
 };
 
