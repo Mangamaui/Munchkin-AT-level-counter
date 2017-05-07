@@ -9,6 +9,7 @@ bundle.js
 .Trashes
 ehthumbs.db
 Thumbs.db
+.sass-cache/*
 
 # node #
 ########
