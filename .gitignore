@@ -9,8 +9,9 @@ bundle.js
 .Trashes
 ehthumbs.db
 Thumbs.db
-.sass-cache/*
 
 # node #
 ########
 node_modules/*
+
+styling/.sass-cache/*
