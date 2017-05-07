@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+
+
 }
 
 html {
@@ -9,15 +11,41 @@ html {
 
 body {
   @include helsinki();
-  background-image: url('../../assets/images/background-blurred.png');
+  background-image: url('#{$image-path}background-blurred.png');
   background-repeat: no-repeat;
   background-position: top center;
   color: white;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   #content {
     padding: 10px;
     text-align: center;
 
+  }
+  .logo {
+    @include centerComponent();
+    background-image: url('#{$image-path}adventure_time_logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 103px;
+    width: 260px;
+  }
+
+  h1 {
+    @include bahiana(2.5rem);
+    font-weight: 400;
+    display: block;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    .brand-name {
+      display: block;
+      font-size: 1.875rem;
+    }
   }
 }

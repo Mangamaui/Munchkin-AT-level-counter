@@ -99,9 +99,33 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   color: white;
-  text-rendering: optimizeLegibility; }
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
   body #content {
     padding: 10px;
     text-align: center; }
+  body .logo {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("../../assets/images/adventure_time_logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 103px;
+    width: 260px; }
+  body h1 {
+    font-family: 'Bahiana', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    display: block;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%); }
+    body h1 .brand-name {
+      display: block;
+      font-size: 1.875rem; }
 
 /*# sourceMappingURL=main.css.map */
