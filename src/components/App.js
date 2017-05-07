@@ -119,7 +119,7 @@ class App extends React.Component {
         <p>Start by adding new players to your game session:</p>
         <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
         <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
-        <button className="start-btn" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+        <button className="start-btn primary__button" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
       </div>
     )
   }
@@ -193,7 +193,7 @@ class App extends React.Component {
         this.setState({nextView: 1});
       });
     } else {
-      console.log("msg test");
+      //console.log("msg test");
       this.setState({notificationMsg: "No savegame was found"});
     }
   }
