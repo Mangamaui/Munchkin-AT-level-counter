@@ -15,7 +15,8 @@ class App extends React.Component {
       nextView: null,
       notificationMsg: null,
       disabled: true,
-      PlayerCreator: null
+      PlayerCreator: null,
+      splash: false
     }
   }
 
@@ -52,9 +53,14 @@ class App extends React.Component {
 /*                   View Switcher                    */
 /*====================================================*/
   _loadViews() {
-    //console.log(this.state.currentGame);
     if(this.state.currentGame === null) {
-      return this._startView;
+      if(!this.state.splash) {
+        this.loadStartHandler();
+        return this._splashScreen;
+      } else {
+        return this._startView;
+      }
+
     } else {
 
       let viewToShow = null;
@@ -72,6 +78,10 @@ class App extends React.Component {
           viewToShow = this._winnerView;
           break;
 
+        case 4:
+          viewToShow = this._startView;
+          break;
+
         default:
           viewToShow = this._newGameView;
       }
@@ -82,12 +92,22 @@ class App extends React.Component {
 /*====================================================*/
 /*                   View Templates                   */
 /*====================================================*/
+  _splashScreen() {
+    return (
+      <div>
+       <div className="logo">
+       </div>
+       <h1><span className="brand-name">Munchkin</span> level counter</h1>
+      </div>
+    )
+  }
+
   _startView() {
     return (
-      <div className="test">
+      <div className="content-box">
       <p>Start a new game or load an old one to get your game started!</p>
-      <button className="start-btn" onClick={this.newGameHandler.bind(this)}>Start Game</button>
-      <button className="load-btn" onClick={this.loadGameHandler.bind(this)}>Load Game</button>
+      <button className="start-btn primary__button" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
+      <button className="load-btn primary__button" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
       </div>
     )
   }
@@ -146,6 +166,13 @@ class App extends React.Component {
     if(this.state.currentGame.playerList.length > 2){
       this.setState({disabled: false});
     }
+  }
+
+  loadStartHandler() {
+    console.log("triggered");
+    setTimeout(function(){
+      this.setState({splash: true});
+    }.bind(this), 3000);
   }
 
   newGameHandler() {
