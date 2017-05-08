@@ -37,40 +37,30 @@
 .icon-arrow-right-thick:before {
   content: ""; }
 
-.primary__button {
+.button {
   font-family: 'Bahiana', cursive;
   font-size: 1.5rem;
   height: 48px;
   border: 4px solid black;
   border-radius: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 5px; }
+
+.button_primary {
   background-color: #D0011B;
   color: white;
   width: 300px; }
 
-.secundary__button {
-  font-family: 'Bahiana', cursive;
-  font-size: 1.5rem;
-  height: 48px;
-  border: 4px solid black;
-  border-radius: 10px;
-  margin-bottom: 5px;
+.button_secundary {
   background-color: #417505;
   color: white;
   width: 300px; }
 
-.tertiary__button {
-  font-family: 'Bahiana', cursive;
-  font-size: 1.5rem;
-  height: 48px;
-  border: 4px solid black;
-  border-radius: 10px;
-  margin-bottom: 5px;
+.button_tertiary {
   background-color: #FFD32C;
   color: white;
   font-size: 2.2rem;
   width: 48px; }
-  .tertiary__button span {
+  .button_tertiary span {
     display: none; }
 
 .avatar {
@@ -85,9 +75,36 @@
     height: 100px;
     width: 100px; }
 
+.PlayerBadge {
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 10px 40px 10px 33px;
+  position: relative;
+  text-align: left; }
+  .PlayerBadge:not(:first-child) {
+    margin-top: 12px; }
+  .PlayerBadge .PlayerBadge_avatar {
+    border-width: 3px;
+    border-color: #505050;
+    border-style: solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px; }
+  .PlayerBadge .PlayerBadge_name {
+    color: #505050;
+    font-size: 1rem;
+    flex: 1;
+    margin: 0 10px; }
+  .PlayerBadge .PlayerBadge_level {
+    font-size: 1.875rem;
+    text-align: right; }
+
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  outline: none; }
 
 html {
   font-size: 16px; }

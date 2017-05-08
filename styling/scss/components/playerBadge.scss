@@ -1,0 +1,29 @@
+.PlayerBadge {
+  background-color:#eee;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 10px 40px 10px 33px;
+  position: relative;
+  text-align: left;
+
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
+
+  .PlayerBadge_avatar {
+    @include avatar(3px, 50px, 50px);
+  }
+
+  .PlayerBadge_name {
+    color: $medium-gray;
+    font-size: 1rem;
+    flex: 1;
+    margin: 0 10px;
+  }
+
+  .PlayerBadge_level {
+    font-size: 1.875rem;
+    text-align: right;
+  }
+}
