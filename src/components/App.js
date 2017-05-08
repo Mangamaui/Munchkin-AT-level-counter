@@ -171,10 +171,9 @@ class App extends React.Component {
   }
 
   loadStartHandler() {
-    console.log("triggered");
     setTimeout(function(){
       this.setState({splash: true});
-    }.bind(this), 3000);
+    }.bind(this), 2000);
   }
 
   newGameHandler() {
