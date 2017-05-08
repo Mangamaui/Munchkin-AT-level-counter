@@ -11,9 +11,9 @@ class PlayerBadge extends React.Component {
   render() {
     return (
       <div className="PlayerBadge">
-        <p className="playerName"><b>{this.props.currentPlayer.name}</b></p>
-        <img className="playerAvatar" src={this._getAvatar()} />
-        <p>Character Level:<br /><span>{this.props.currentPlayer.characterLevel}</span></p>
+        <img className="PlayerBadge_avatar" src={this._getAvatar()} />
+        <p className="PlayerBadge_name">{this.props.currentPlayer.name}</p>
+        <p className="PlayerBadge_level">{this.props.currentPlayer.characterLevel}</p>
       </div>
     )
   }

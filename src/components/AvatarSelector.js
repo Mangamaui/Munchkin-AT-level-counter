@@ -13,12 +13,12 @@ class AvatarSelector extends React.Component {
   render() {
     return (
       <div className="AvatarSelector">
-        <button className="previous-btn tertiary__button" onClick={this._previousAvatar.bind(this)}><i className="icon icon-arrow-left-thick"></i><span>previous</span></button>
+        <button className="previous-btn button button_tertiary" onClick={this._previousAvatar.bind(this)}><i className="icon icon-arrow-left-thick"></i><span>previous</span></button>
           <div className="avatar">
             <img src={AvatarList[this.state.shownAvatarIndex-1].image} />
             <p><b>{AvatarList[this.state.shownAvatarIndex-1].name}</b></p>
           </div>
-        <button className="next-btn tertiary__button" onClick={this._nextAvatar.bind(this)}><i className="icon icon-arrow-right-thick"></i><span>next</span></button>
+        <button className="next-btn button button_tertiary" onClick={this._nextAvatar.bind(this)}><i className="icon icon-arrow-right-thick"></i><span>next</span></button>
       </div>
     );
   }
