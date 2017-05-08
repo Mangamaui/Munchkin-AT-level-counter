@@ -106,7 +106,9 @@ class App extends React.Component {
     return (
       <div className="content-box">
         <div className="message_slab">
-          <p>Start a new game or load an old one to get your game started!</p>
+          <p>Welcome to the Munchkin Adventure Time Level Counter!</p>
+          <br />
+          <p>Start tracking your game by clicking "new game".</p>
         </div>
         <button className="start-btn button button_primary" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
         <button className="load-btn button button_primary" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
@@ -118,7 +120,7 @@ class App extends React.Component {
     const notify = this.notify.bind(this);
     return (
       <div>
-        <p>Start by adding new players to your game session:</p>
+        <p>Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
         <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
         <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
         <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
