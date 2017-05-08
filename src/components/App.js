@@ -105,9 +105,11 @@ class App extends React.Component {
   _startView() {
     return (
       <div className="content-box">
-      <p>Start a new game or load an old one to get your game started!</p>
-      <button className="start-btn primary__button" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
-      <button className="load-btn primary__button" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
+        <div className="message_slab">
+          <p>Start a new game or load an old one to get your game started!</p>
+        </div>
+        <button className="start-btn button button_primary" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
+        <button className="load-btn button button_primary" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
       </div>
     )
   }
@@ -119,7 +121,7 @@ class App extends React.Component {
         <p>Start by adding new players to your game session:</p>
         <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
         <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
-        <button className="start-btn primary__button" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+        <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
       </div>
     )
   }
@@ -132,7 +134,7 @@ class App extends React.Component {
     return (
       <div>
         {list}
-        <button onClick={this.nextViewHandler.bind(this)}>Start Playing!</button>
+        <button className="button button_primary" onClick={this.nextViewHandler.bind(this)}>Start Playing!</button>
       </div>
     )
   }
@@ -143,7 +145,7 @@ class App extends React.Component {
     return (
       <div>
         <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
-        <button className="nextTurn-btn" onClick={this.nextViewHandler.bind(this)}>End turn</button>
+        <button className="nextTurn-btn button button_primary" onClick={this.nextViewHandler.bind(this)}>End turn</button>
       </div>
     )
   }
@@ -154,7 +156,7 @@ class App extends React.Component {
       <div>
       <h2>{playerLoad.name} is the winner!!!</h2>
         <PlayerBadge currentPlayer={playerLoad} />
-        <button className="newGame-btn" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
+        <button className="newGame-btn button_primary" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
       </div>
     )
   }
