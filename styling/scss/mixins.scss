@@ -1,6 +1,21 @@
+@mixin avatar($border, $height, $width) {
+  border-width: $border;
+  border-color: $medium-gray;
+  border-style: solid;
+  border-radius: 50%;
+  height: $height;
+  width: $width;
+}
+
 @mixin centerComponent() {
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin verticallyCenter() {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
