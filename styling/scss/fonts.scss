@@ -17,12 +17,14 @@ $font-path: "../../assets/fonts" !default;
 
 @mixin bahiana($size: 1rem) {
 	font-family: 'Bahiana', cursive;
-	font-size: $size
+	font-size: $size;
+  font-weight: 400;
 }
 
 @mixin helsinki($size: 1rem) {
   font-family: 'helsinkiregular', cursive;
-  font-size: $size
+  font-size: $size;
+  font-weight: 400;
 }
 
 
