@@ -1,9 +1,18 @@
+button {
+  cursor:pointer;
+}
+
 .button {
   @include bahiana(1.5rem);
   height: 48px;
   border: 4px solid black;
   border-radius: 10px;
   margin-bottom: 5px;
+}
+
+.button_group {
+  position: absolute;
+  bottom: 30px;
 }
 
 .button_primary {

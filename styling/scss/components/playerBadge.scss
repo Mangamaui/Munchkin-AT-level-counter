@@ -12,7 +12,7 @@
   }
 
   .PlayerBadge_avatar {
-    @include avatar(3px, 50px, 50px);
+    @include avatar(3px, 50px);
   }
 
   .PlayerBadge_name {

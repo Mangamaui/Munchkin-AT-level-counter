@@ -4,6 +4,6 @@
   margin: 15px;
 
   img {
-    @include avatar(5px, 100px, 100px);
+    @include avatar(5px, 100px);
   }
 }
