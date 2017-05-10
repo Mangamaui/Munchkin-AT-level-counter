@@ -35,11 +35,11 @@ $icon-arrow-right-thick: "\e903";
 
 @font-face {
   font-family: 'AT-icons';
-  src:  url('#{$font-path}/AT-icons.eot?2bmsio');
-  src:  url('#{$font-path}/AT-icons.eot?2bmsio#iefix') format('embedded-opentype'),
-    url('#{$font-path}/AT-icons.ttf?2bmsio') format('truetype'),
-    url('#{$font-path}/AT-icons.woff?2bmsio') format('woff'),
-    url('#{$font-path}/AT-icons.svg?2bmsio#AT-icons') format('svg');
+  src:  url('#{$font-path}/AT-icons.eot?wa1tdt');
+  src:  url('#{$font-path}/AT-icons.eot?wa1tdt#iefix') format('embedded-opentype'),
+    url('#{$font-path}/AT-icons.ttf?wa1tdt') format('truetype'),
+    url('#{$font-path}/AT-icons.woff?wa1tdt') format('woff'),
+    url('#{$font-path}/AT-icons.svg?wa1tdt#AT-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -59,6 +59,16 @@ $icon-arrow-right-thick: "\e903";
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-minus {
+  &:before {
+    content: $icon-minus;
+  }
+}
+.icon-plus {
+  &:before {
+    content: $icon-plus;
+  }
+}
 .icon-warning-outline {
   &:before {
     content: $icon-warning-outline;
