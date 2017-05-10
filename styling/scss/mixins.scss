@@ -1,10 +1,10 @@
-@mixin avatar($border, $height, $width) {
+@mixin avatar($border, $dimensions) {
   border-width: $border;
   border-color: $medium-gray;
   border-style: solid;
   border-radius: 50%;
-  height: $height;
-  width: $width;
+  height: $dimensions;
+  width: $dimensions;
 }
 
 @mixin centerComponent() {
