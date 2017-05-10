@@ -55,5 +55,18 @@ module.exports = {
   UpdateAvailableAvatars: function(id) {
     let index = availableAvatarList.findIndex(avatar => avatar.id === id);
     availableAvatarList.splice(index, 1);
+  },
+  GetAvatar: function(currentPlayer) {
+    console.log(currentPlayer);
+    let id = currentPlayer;
+    let image = null;
+
+    avatarList.forEach(function(avatar) {
+
+      if(avatar.id == id) {
+         image = avatar.image;
+      }
+    });
+    return image;
   }
 }
