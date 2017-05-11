@@ -1,0 +1,5 @@
+.winner_block {
+  .winner_block__avatar {
+    @include avatar(10px, 150px);
+  }
+}
