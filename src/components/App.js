@@ -104,14 +104,16 @@ class App extends React.Component {
 
   _startView() {
     return (
-      <div className="content-box">
+      <div className="welcome_view" >
         <div className="message_slab">
           <p>Welcome to the Munchkin Adventure Time Level Counter!</p>
           <br />
           <p>Start tracking your game by clicking "new game".</p>
         </div>
-        <button className="start-btn button button_primary" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
-        <button className="load-btn button button_primary" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
+        <div className="button_group">
+          <button className="start-btn button button_primary" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
+          <button className="load-btn button button_primary" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
+        </div>
       </div>
     )
   }
