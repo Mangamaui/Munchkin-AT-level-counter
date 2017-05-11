@@ -162,9 +162,13 @@ class App extends React.Component {
     let playerLoad = this._loadActivePlayer();
     return (
       <div>
-      <h2>{playerLoad.name} is the winner!!!</h2>
-        <PlayerBadge currentPlayer={playerLoad} />
-        <button className="newGame-btn button_primary" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
+        <div className="winner_block">
+          <h2 className="winner_block__winner">{playerLoad.name} wins this game!</h2>
+          <img className="winner_block__avatar" src={getAvatar(playerLoad.avatar)}/>
+
+          <p className="winner_block__text">Time for another round?</p>
+        </div>
+        <button className="newGame-btn button button_primary" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
       </div>
     )
   }
