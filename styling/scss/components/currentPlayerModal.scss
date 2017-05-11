@@ -1,0 +1,29 @@
+.current_player_modal {
+  background-color: #969696;
+  border: 5px solid black;
+
+  h3 {
+    color: $medium-gray;
+    font-size: 1.125rem;
+    margin-bottom: 15px;
+  }
+
+  .current_player_modal__avatar {
+    @include avatar(5px, 90px);
+  }
+
+  .current_player_modal__name {
+    color: $medium-gray;
+    font-size: 24px;
+    margin-bottom: 35px;
+  }
+
+  .current_player_modal__combat_level_label {
+    margin-top: 28px;
+  }
+
+  .current_player_modal__combat_level {
+    font-size: 2.25rem;
+    margin: 0 25px;
+  }
+}
