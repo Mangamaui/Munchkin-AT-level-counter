@@ -122,10 +122,14 @@ class App extends React.Component {
     const notify = this.notify.bind(this);
     return (
       <div>
-        <p>Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
-        <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
-        <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
-        <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+        <div className="new_game_view">
+          <div class="message_slab">
+            <p>Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
+            <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
+            <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
+          </div>
+          <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+        </div>
       </div>
     )
   }
