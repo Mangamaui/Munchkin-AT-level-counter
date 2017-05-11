@@ -1,7 +1,7 @@
 let React =  require('react');
 let player = require('../lib/player');
 let LevelCounter = require('./LevelCounter');
-let AvatarList = require('../lib/avatars').AvatarList;
+let getAvatar = require('../lib/avatars').GetAvatar;
 
 class CurrentPlayerModal extends React.Component {
   constructor(props) {
@@ -21,12 +21,13 @@ class CurrentPlayerModal extends React.Component {
     const notify = this.notify.bind(this);
 
     return (
-      <div className="CurrentPlayerModal" onClick={this.clickHandler.bind(this)}>
-        <h2>{this.props.currentPlayer.name}</h2>
-        <img src={this._getAvatar()} />
+      <div className="current_player_modal" onClick={this.clickHandler.bind(this)}>
+        <img className="current_player_modal__avatar" src={this._getAvatar()} />
+        <h2 className="current_player_modal__name">{this.props.currentPlayer.name}</h2>
         <LevelCounter levelType="characterLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
         <LevelCounter levelType="gearLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
-        <p>CombatLevel: {this.props.currentPlayer.combatLevel}</p>
+        <h3 className="current_player_modal__combat_level_label">Combat level</h3>
+        <p className="current_player_modal__combat_level"> {this.props.currentPlayer.combatLevel}</p>
       </div>
     );
   }
@@ -36,16 +37,7 @@ class CurrentPlayerModal extends React.Component {
   }
 
   _getAvatar() {
-    let id = this.props.currentPlayer.avatar;
-    let image = null;
-
-    AvatarList.forEach(function(avatar) {
-      if(avatar.id === id) {
-         image = avatar.image;
-      }
-    });
-
-    return image;
+    return getAvatar(this.props.currentPlayer.avatar);
   }
 }
 
