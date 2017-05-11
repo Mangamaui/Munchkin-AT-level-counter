@@ -1,0 +1,15 @@
+.welcome_view {
+  .message_slab {
+    background-color: #969696;
+    border: 10px solid black;
+    height: 300px;
+    margin: 50px auto;
+    padding: 60px 0 20px 0;
+    width: 300px;
+
+    p {
+      line-height: 1.75em;
+      font-size: 1.125rem;
+    }
+  }
+}
