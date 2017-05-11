@@ -4,7 +4,7 @@ let game = require('../lib/game');
 let PlayerCreator = require('./PlayerCreator');
 let PlayerBadge = require('./PlayerBadge');
 let CurrentPlayerModal = require('./CurrentPlayerModal');
-
+let getAvatar = require('../lib/avatars').GetAvatar;
 
 class App extends React.Component {
   constructor() {
