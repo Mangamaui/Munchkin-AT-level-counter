@@ -4,7 +4,10 @@
 @import "colors";
 @import "components/buttons";
 @import "components/avatar";
-@import "Components/playerBadge";
+@import "components/playerBadge";
+@import "components/levelCounter";
+@import "components/currentPlayerModal";
 
-
+@import "layouts/welcome-view";
+@import "layouts/winner-block";
 @import "app";
