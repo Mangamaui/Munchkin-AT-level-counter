@@ -16,9 +16,9 @@ class PlayerCreator extends React.Component {
 
   render() {
     return(
-      <div className="PlayerCreator">
-        <input type="text" id="playerName" placeholder="Add player name" onChange={this.changeHandler.bind(this)}/>
+      <div className="player_creator">
         <AvatarSelector ref={c => this.state.avatarSelector = c} />
+        <input className="player_creator__input" type="text" id="playerName" placeholder="Add player name" onChange={this.changeHandler.bind(this)}/>
         <button className="add-player-btn button button_secundary" onClick={this.clickHandler.bind(this)}
           disabled={this.state.disabled}>Add player</button>
       </div>
