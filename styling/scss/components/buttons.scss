@@ -11,8 +11,11 @@ button {
 }
 
 .button_group {
-  position: absolute;
   bottom: 30px;
+  display: block;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .button_primary {
@@ -30,8 +33,10 @@ button {
 .button_tertiary {
   background-color: $yellow;
   color: white;
-  font-size: 2.2rem;
-  width: 48px;
+  font-size: 2rem;
+  height: 42px;
+  line-height: 1;
+  width: 42px;
 
   span {
     display: none;
