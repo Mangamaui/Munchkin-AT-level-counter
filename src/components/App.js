@@ -123,12 +123,14 @@ class App extends React.Component {
     return (
       <div>
         <div className="new_game_view">
-          <div class="message_slab">
-            <p>Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
+          <div className="message_slab">
+            <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
             <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
-            <p>Players added to the game: <br /><span>{this.state.currentGame.playerList.length}</span></p>
+            <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
-          <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+          <div className="button_group">
+            <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+          </div>
         </div>
       </div>
     )
