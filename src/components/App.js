@@ -1,28 +1,29 @@
 //layout, routers
 let React =  require('react');
 let game = require('../lib/game');
-let PlayerCreator = require('./PlayerCreator');
+let player = require('../lib/player');
+let AvatarSelector = require('./AvatarSelector');
 let PlayerBadge = require('./PlayerBadge');
 let CurrentPlayerModal = require('./CurrentPlayerModal');
+let UpdateAvailableAvatars = require('../lib/avatars').UpdateAvailableAvatars;
 let getAvatar = require('../lib/avatars').GetAvatar;
+
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
+      avatarSelector: null,
       currentGame: null,
+      disabled1: false,
+      disabled2: true,
       nextView: null,
       notificationMsg: null,
-      disabled: true,
-      PlayerCreator: null,
-      splash: false
+      playerName: null,
+      splash: false,
+      tablePosition: 0
     }
-  }
-
-  notify() {
-    this.checkPlayerMinimum();
-    this.forceUpdate();
   }
 
   render() {
@@ -119,17 +120,20 @@ class App extends React.Component {
   }
 
   _newGameView() {
-    const notify = this.notify.bind(this);
     return (
       <div>
         <div className="new_game_view">
           <div className="message_slab">
             <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
-            <PlayerCreator currentGame={this.state.currentGame} notify={notify} />
+            <div className="player_creator">
+              <AvatarSelector ref={c => this.state.avatarSelector = c} />
+              <input className="player_creator__input" type="text" id="playerName" placeholder="Add player name" onChange={this.changeHandler.bind(this)}/>
+            </div>
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
           <div className="button_group">
-            <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled}>Start the game</button>
+          <button className="add-player-btn button button_secundary" onClick={this.addPlayerHandler.bind(this)} disabled={this.state.disabled1}>Add player</button>
+            <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled2}>Continue</button>
           </div>
         </div>
       </div>
@@ -178,9 +182,38 @@ class App extends React.Component {
 /*====================================================*/
 /*                    Event Handlers                  */
 /*====================================================*/
+  changeHandler(e) {
+    this.setState(
+      { [e.target.id]: e.target.value }
+    );
+  }
+
+  addPlayerHandler(e) {
+    console.log("add player");
+
+    let game = this.state.currentGame;
+    let limit = game.addPlayerToGame({
+      name: this.state.playerName,
+      avatar: this.state.avatarSelector.state.selectedAvatarID,
+      tablePosition: (this.state.tablePosition+=1)
+    });
+
+    UpdateAvailableAvatars(this.state.avatarSelector.state.selectedAvatarID);
+
+    if (limit) {
+      this.setState({disabled1: true});
+    }
+
+    this.checkPlayerMinimum();
+    this.forceUpdate();
+  }
+
   checkPlayerMinimum() {
+    console.log(this.state.currentGame.playerList.length);
     if(this.state.currentGame.playerList.length > 2){
-      this.setState({disabled: false});
+      console.log(true);
+      this.setState({disabled2: false});
+      this.forceUpdate();
     }
   }
 
