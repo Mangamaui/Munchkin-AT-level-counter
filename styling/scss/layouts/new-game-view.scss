@@ -1,0 +1,49 @@
+.new_game_view {
+  .message_slab {
+    background: url('#{$image-path}stone_slab_300.svg') no-repeat;
+    height: 366px;
+    font-size: 0.875rem;
+    line-height: 1.5em;
+    margin: 0 auto;
+    padding: 50px 0 20px 0;
+    position: relative;
+    width: 300px;
+
+    .player_count {
+      bottom: 40px;
+      color: black;
+      display: block;
+      position: absolute;
+      width: 100%;
+    }
+
+    .AvatarSelector {
+      padding-top: 35px;
+    }
+
+    .add-player-btn {
+      position: absolute;
+      bottom: -140px;
+      left: 0;
+    }
+
+    .player_creator {
+      position: relative;
+    }
+
+    .player_creator__input {
+      @include helsinki();
+      height: 40px;
+      width: 200px;
+      text-align: center;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.125rem;
+
+      &::placeholder {
+        color: $medium-gray;
+      }
+    }
+  }
+}
