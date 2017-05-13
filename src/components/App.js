@@ -111,7 +111,7 @@ class App extends React.Component {
           <br />
           <p>Start tracking your game by clicking "new game".</p>
         </div>
-        <div className="button_group">
+        <div className="button_wrap">
           <button className="start-btn button button_primary" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
           <button className="load-btn button button_primary" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
         </div>
@@ -131,7 +131,7 @@ class App extends React.Component {
             </div>
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
-          <div className="button_group">
+          <div className="button_wrap">
           <button className="add-player-btn button button_secundary" onClick={this.addPlayerHandler.bind(this)} disabled={this.state.disabled1}>Add player</button>
             <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled2}>Continue</button>
           </div>
@@ -148,7 +148,9 @@ class App extends React.Component {
     return (
       <div>
         {list}
-        <button className="button button_primary" onClick={this.nextViewHandler.bind(this)}>Start Playing!</button>
+        <div className="button_wrap">
+          <button className="button button_primary" onClick={this.nextViewHandler.bind(this)}>Start Playing!</button>
+        </div>
       </div>
     )
   }
@@ -159,7 +161,9 @@ class App extends React.Component {
     return (
       <div>
         <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
-        <button className="nextTurn-btn button button_primary" onClick={this.nextViewHandler.bind(this)}>End turn</button>
+        <div className="button_wrap">
+          <button className="nextTurn-btn button button_primary" onClick={this.nextViewHandler.bind(this)}>End turn</button>
+        </div>
       </div>
     )
   }
@@ -174,7 +178,9 @@ class App extends React.Component {
 
           <p className="winner_block__text">Time for another round?</p>
         </div>
-        <button className="newGame-btn button button_primary" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
+        <div className="button_wrap">
+          <button className="newGame-btn button button_primary" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
+        </div>
       </div>
     )
   }
@@ -189,8 +195,6 @@ class App extends React.Component {
   }
 
   addPlayerHandler(e) {
-    console.log("add player");
-
     let game = this.state.currentGame;
     let limit = game.addPlayerToGame({
       name: this.state.playerName,
@@ -209,9 +213,7 @@ class App extends React.Component {
   }
 
   checkPlayerMinimum() {
-    console.log(this.state.currentGame.playerList.length);
     if(this.state.currentGame.playerList.length > 2){
-      console.log(true);
       this.setState({disabled2: false});
       this.forceUpdate();
     }
