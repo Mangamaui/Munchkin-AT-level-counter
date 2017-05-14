@@ -7,15 +7,15 @@
   width: $dimensions;
 }
 
-@mixin button-colorScheme($color) {
+@mixin button-colorScheme($color, $percentage) {
   .button_base-color {
     fill: $color;
   }
   .button_gloss {
-    fill: lighten($color, 10%);
+    fill: lighten($color, $percentage);
   }
   .button_shadow {
-    fill: darken($color, 10%);
+    fill: darken($color, $percentage);
   }
 }
 
