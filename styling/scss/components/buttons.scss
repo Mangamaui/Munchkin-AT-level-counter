@@ -59,6 +59,17 @@ button {
   line-height: 1;
   width: 42px;
 
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  i {
+    left: 0;
+    position: absolute;
+    z-index: 2;
+  }
+
   span {
     display: none;
   }
