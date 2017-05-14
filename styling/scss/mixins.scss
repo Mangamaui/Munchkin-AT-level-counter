@@ -7,6 +7,18 @@
   width: $dimensions;
 }
 
+@mixin button-colorScheme($color) {
+  .button_base-color {
+    fill: $color;
+  }
+  .button_gloss {
+    fill: lighten($color, 10%);
+  }
+  .button_shadow {
+    fill: darken($color, 10%);
+  }
+}
+
 @mixin centerComponent() {
   left: 50%;
   position: absolute;
