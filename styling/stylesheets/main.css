@@ -50,38 +50,72 @@ button {
   font-family: 'Bahiana', cursive;
   font-size: 1.5rem;
   font-weight: 400;
-  height: 48px;
+  background-color: black;
   border: 4px solid black;
   border-radius: 10px;
-  margin-bottom: 5px; }
+  color: white;
+  height: 48px;
+  margin-bottom: 5px;
+  position: relative; }
+  .button .button__text {
+    left: 0;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2; }
   .button:disabled {
     opacity: 0.7;
     cursor: default; }
+  .button svg {
+    border-radius: 6px;
+    width: 100%;
+    white-space: nowrap;
+    z-index: -1; }
 
 .button_wrap {
-  bottom: 30px;
+  bottom: 10px;
   display: block;
   left: 0;
   position: absolute;
   width: 100%; }
 
 .button_primary {
-  background-color: #D0011B;
-  color: white;
   width: 300px; }
+  .button_primary .button_base-color {
+    fill: #D0011B; }
+  .button_primary .button_gloss {
+    fill: #fe0625; }
+  .button_primary .button_shadow {
+    fill: #9d0114; }
 
 .button_secundary {
-  background-color: #417505;
-  color: white;
   width: 300px; }
+  .button_secundary .button_base-color {
+    fill: #417505; }
+  .button_secundary .button_gloss {
+    fill: #5ca607; }
+  .button_secundary .button_shadow {
+    fill: #264403; }
 
 .button_tertiary {
-  background-color: #FFD32C;
-  color: white;
   font-size: 2rem;
   height: 42px;
   line-height: 1;
   width: 42px; }
+  .button_tertiary .button_base-color {
+    fill: #FFD32C; }
+  .button_tertiary .button_gloss {
+    fill: #ffde5f; }
+  .button_tertiary .button_shadow {
+    fill: #f8c400; }
+  .button_tertiary svg {
+    height: 100%;
+    width: 100%; }
+  .button_tertiary i {
+    left: 0;
+    position: absolute;
+    z-index: 2; }
   .button_tertiary span {
     display: none; }
 
@@ -139,6 +173,7 @@ button {
     background-color: transparent;
     border: none;
     color: white;
+    cursor: pointer;
     display: inline-block;
     font-size: 2rem; }
 
@@ -166,18 +201,24 @@ button {
     font-size: 2.25rem;
     margin: 0 25px; }
 
-.welcome_view .message_slab {
-  background-color: #969696;
-  border: 10px solid black;
+.welcome_view .content_wrap {
   height: 300px;
   margin: 50px auto;
   padding: 60px 0 20px 0;
-  width: 300px; }
-  .welcome_view .message_slab p {
+  width: 300px;
+  position: relative; }
+  .welcome_view .content_wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%; }
+  .welcome_view .content_wrap p {
     line-height: 1.75em;
     font-size: 1.125rem; }
 
-.new_game_view .message_slab {
+.new_game_view .content_wrap {
   background: url("../../assets/images/stone_slab_300.svg") no-repeat;
   height: 366px;
   font-size: 0.875rem;
@@ -186,21 +227,21 @@ button {
   padding: 50px 0 20px 0;
   position: relative;
   width: 300px; }
-  .new_game_view .message_slab .player_count {
+  .new_game_view .content_wrap .player_count {
     bottom: 40px;
     color: black;
     display: block;
     position: absolute;
     width: 100%; }
-  .new_game_view .message_slab .AvatarSelector {
+  .new_game_view .content_wrap .AvatarSelector {
     padding-top: 35px; }
-  .new_game_view .message_slab .add-player-btn {
+  .new_game_view .content_wrap .add-player-btn {
     position: absolute;
     bottom: -140px;
     left: 0; }
-  .new_game_view .message_slab .player_creator {
+  .new_game_view .content_wrap .player_creator {
     position: relative; }
-  .new_game_view .message_slab .player_creator__input {
+  .new_game_view .content_wrap .player_creator__input {
     font-family: 'helsinkiregular', cursive;
     font-size: 1rem;
     font-weight: 400;
@@ -211,7 +252,7 @@ button {
     border: none;
     color: white;
     font-size: 1.125rem; }
-    .new_game_view .message_slab .player_creator__input::placeholder {
+    .new_game_view .content_wrap .player_creator__input::placeholder {
       color: #505050; }
 
 .winner_block .winner_block__avatar {
