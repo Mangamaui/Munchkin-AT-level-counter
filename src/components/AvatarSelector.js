@@ -1,5 +1,6 @@
 let React =  require('react');
 let AvatarList = require('../lib/avatars').AvailableAvatarList;
+let CustomButton = require('./button');
 
 class AvatarSelector extends React.Component {
   constructor(props) {
@@ -13,11 +14,15 @@ class AvatarSelector extends React.Component {
   render() {
     return (
       <div className="AvatarSelector">
-        <button className="previous-btn button button_tertiary" onClick={this._previousAvatar.bind(this)}><i className="icon icon-arrow-left-thick"></i><span>previous</span></button>
+        <CustomButton button_class="previous-btn button_tertiary" button_handler={this._previousAvatar.bind(this)} button_text="previous">
+          <i className="icon icon-arrow-left-thick"></i>
+        </CustomButton>
           <div className="avatar">
             <img src={AvatarList[this.state.shownAvatarIndex-1].image} />
           </div>
-        <button className="next-btn button button_tertiary" onClick={this._nextAvatar.bind(this)}><i className="icon icon-arrow-right-thick"></i><span>next</span></button>
+          <CustomButton button_class="next-btn button_tertiary" button_handler={this._nextAvatar.bind(this)} button_text="next">
+            <i className="icon icon-arrow-right-thick"></i>
+          </CustomButton>
       </div>
     );
   }
