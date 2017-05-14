@@ -7,6 +7,7 @@ let PlayerBadge = require('./PlayerBadge');
 let CurrentPlayerModal = require('./CurrentPlayerModal');
 let UpdateAvailableAvatars = require('../lib/avatars').UpdateAvailableAvatars;
 let getAvatar = require('../lib/avatars').GetAvatar;
+let CustomButton = require('./button');
 
 
 class App extends React.Component {
@@ -106,14 +107,17 @@ class App extends React.Component {
   _startView() {
     return (
       <div className="welcome_view" >
-        <div className="message_slab">
+        <div className="content_wrap">
+          <img src="assets/images/stone_slab_300.svg" />
           <p>Welcome to the Munchkin Adventure Time Level Counter!</p>
           <br />
           <p>Start tracking your game by clicking "new game".</p>
         </div>
         <div className="button_wrap">
-          <button className="start-btn button button_primary" onClick={this.newGameHandler.bind(this)}>Start New Game</button>
-          <button className="load-btn button button_primary" onClick={this.loadGameHandler.bind(this)}>Load Saved Game</button>
+          <CustomButton button_class="start-btn button_primary" button_handler={this.newGameHandler.bind(this)} button_text="start new game">
+          </CustomButton>
+          <CustomButton button_class="load-btn button_primary" button_handler={this.loadGameHandler.bind(this)} button_text="load saved game">
+          </CustomButton>
         </div>
       </div>
     )
@@ -123,7 +127,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="new_game_view">
-          <div className="message_slab">
+          <div className="content_wrap">
             <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
             <div className="player_creator">
               <AvatarSelector ref={c => this.state.avatarSelector = c} />
@@ -132,8 +136,10 @@ class App extends React.Component {
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
           <div className="button_wrap">
-          <button className="add-player-btn button button_secundary" onClick={this.addPlayerHandler.bind(this)} disabled={this.state.disabled1}>Add player</button>
-            <button className="start-btn button button_primary" onClick={this.overviewHandler.bind(this)} disabled={this.state.disabled2}>Continue</button>
+            <CustomButton button_class="add-player-btn button_secundary" button_handler={this.addPlayerHandler.bind(this)} button_text="add player" disabled={this.state.disabled1}>
+            </CustomButton>
+            <CustomButton button_class="start-btn button_primary" button_handler={this.overviewHandler.bind(this)} button_text="continue" disabled={this.state.disabled2}>
+            </CustomButton>
           </div>
         </div>
       </div>
@@ -143,13 +149,14 @@ class App extends React.Component {
   _playerOverview() {
     let list = this.state.currentGame.playerList.map(function(player){
         return <PlayerBadge key={player.id} currentPlayer={player} />;
-    })
+    });
 
     return (
       <div>
         {list}
         <div className="button_wrap">
-          <button className="button button_primary" onClick={this.nextViewHandler.bind(this)}>Start Playing!</button>
+          <CustomButton button_class="button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="start playing!">
+          </CustomButton>
         </div>
       </div>
     )
@@ -162,7 +169,8 @@ class App extends React.Component {
       <div>
         <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
         <div className="button_wrap">
-          <button className="nextTurn-btn button button_primary" onClick={this.nextViewHandler.bind(this)}>End turn</button>
+          <CustomButton button_class="nextTurn-btn button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="end turn">
+          </CustomButton>
         </div>
       </div>
     )
@@ -179,7 +187,7 @@ class App extends React.Component {
           <p className="winner_block__text">Time for another round?</p>
         </div>
         <div className="button_wrap">
-          <button className="newGame-btn button button_primary" onClick={this.restartGameHandler.bind(this)}>Start New Game</button>
+          <CustomButton button_class="newGame-btn button_primary" button_handler={this.restartGameHandler.bind(this)} button_text="start new game"></CustomButton>
         </div>
       </div>
     )
@@ -222,7 +230,7 @@ class App extends React.Component {
   loadStartHandler() {
     setTimeout(function(){
       this.setState({splash: true});
-    }.bind(this), 2000);
+    }.bind(this), 500);
   }
 
   newGameHandler() {
