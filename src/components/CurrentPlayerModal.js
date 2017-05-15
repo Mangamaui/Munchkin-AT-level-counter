@@ -21,7 +21,8 @@ class CurrentPlayerModal extends React.Component {
     const notify = this.notify.bind(this);
 
     return (
-      <div className="current_player_modal" onClick={this.clickHandler.bind(this)}>
+      <div className="current_player_modal content_wrap" onClick={this.clickHandler.bind(this)}>
+        <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
         <img className="current_player_modal__avatar" src={this._getAvatar()} />
         <h2 className="current_player_modal__name">{this.props.currentPlayer.name}</h2>
         <LevelCounter levelType="characterLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
