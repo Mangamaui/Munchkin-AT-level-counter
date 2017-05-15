@@ -108,7 +108,7 @@ class App extends React.Component {
     return (
       <div className="welcome_view" >
         <div className="content_wrap">
-          <img src="assets/images/stone_slab_300.svg" />
+          <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
           <p>Welcome to the Munchkin Adventure Time Level Counter!</p>
           <br />
           <p>Start tracking your game by clicking "new game".</p>
@@ -128,10 +128,11 @@ class App extends React.Component {
       <div>
         <div className="new_game_view">
           <div className="content_wrap">
+            <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
             <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
             <div className="player_creator">
               <AvatarSelector ref={c => this.state.avatarSelector = c} />
-              <input className="player_creator__input" type="text" id="playerName" placeholder="Add player name" onChange={this.changeHandler.bind(this)}/>
+              <input className="player_creator__input" type="text" id="playerName" placeholder="player name" onChange={this.changeHandler.bind(this)}/>
             </div>
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
@@ -152,8 +153,9 @@ class App extends React.Component {
     });
 
     return (
-      <div>
+      <div className="player_overview">
         {list}
+
         <div className="button_wrap">
           <CustomButton button_class="button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="start playing!">
           </CustomButton>
@@ -166,7 +168,7 @@ class App extends React.Component {
     let playerLoad = this._loadActivePlayer();
 
     return (
-      <div>
+      <div className="activer_player_view">
         <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
         <div className="button_wrap">
           <CustomButton button_class="nextTurn-btn button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="end turn">
@@ -179,8 +181,9 @@ class App extends React.Component {
   _winnerView() {
     let playerLoad = this._loadActivePlayer();
     return (
-      <div>
-        <div className="winner_block">
+      <div className="winner_view">
+        <div className="winner_block content_wrap">
+          <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
           <h2 className="winner_block__winner">{playerLoad.name} wins this game!</h2>
           <img className="winner_block__avatar" src={getAvatar(playerLoad.avatar)}/>
 
