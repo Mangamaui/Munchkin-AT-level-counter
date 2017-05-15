@@ -2,6 +2,8 @@
   display: inline-block;
   vertical-align: middle;
   margin: 15px;
+  line-height: 0;
+  font-size: 0;
 
   img {
     @include avatar(5px, 100px);
