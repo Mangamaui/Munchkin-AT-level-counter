@@ -1,18 +1,27 @@
 .PlayerBadge {
-      background: url('#{$image-path}stone_slab_80.svg') no-repeat;
-  display: flex;
   align-items: center;
+  display: flex;
   height: 60px;
   padding: 10px 40px 10px 33px;
   position: relative;
   text-align: left;
 
+  .stone_slab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
   &:not(:first-child) {
-    margin-top: 12px;
+    //margin-top: 12px;
   }
 
   .PlayerBadge_avatar {
     @include avatar(3px, 50px);
+    flex-shrink: 0;
   }
 
   .PlayerBadge_name {
