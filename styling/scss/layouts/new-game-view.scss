@@ -16,14 +16,15 @@
     }
 
     .AvatarSelector {
-      padding-top: 35px;
+      padding-bottom: 15px;
+
+      .button {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
     }
 
-    .add-player-btn {
-      position: absolute;
-      bottom: -140px;
-      left: 0;
-    }
 
     .player_creator {
       position: relative;
@@ -31,13 +32,20 @@
 
     .player_creator__input {
       @include helsinki();
-      height: 40px;
-      width: 200px;
-      text-align: center;
-      background: transparent;
+      background-color: darken($base-gray, 5%);
+      box-shadow: inset $medium-gray -3px 3px 0;
+      border-radius: 8px;
       border: none;
       color: white;
       font-size: 1.125rem;
+      height: 40px;
+      margin-bottom: 80px;
+      text-align: center;
+      width: 200px;
+
+      &:focus {
+
+      }
 
       &::placeholder {
         color: $medium-gray;
