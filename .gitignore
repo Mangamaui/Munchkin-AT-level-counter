@@ -15,3 +15,5 @@ Thumbs.db
 node_modules/*
 
 styling/.sass-cache/*
+
+main.css
