@@ -3,7 +3,7 @@
   h3 {
     color: $medium-gray;
     font-size: 1.125rem;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   .current_player_modal__avatar {
@@ -13,15 +13,16 @@
   .current_player_modal__name {
     color: $medium-gray;
     font-size: 24px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
   }
 
   .current_player_modal__combat_level_label {
-    margin-top: 28px;
+    margin-top: 20px;
   }
 
   .current_player_modal__combat_level {
     font-size: 2.25rem;
     margin: 0 25px;
+    padding-bottom: 10px;
   }
 }
