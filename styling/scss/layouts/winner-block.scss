@@ -1,5 +1,10 @@
 .winner_block {
+
   .winner_block__avatar {
     @include avatar(10px, 150px);
+    margin: 20px 0 40px 0;
+  }
+  .winner_block__text {
+    padding-bottom: 20px;
   }
 }
