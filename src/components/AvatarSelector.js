@@ -28,7 +28,13 @@ class AvatarSelector extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({selectedAvatarID: AvatarList[0].id});
+    const newState = {selectedAvatarID: AvatarList[0].id};
+
+    if (!AvatarList[this.state.shownAvatarIndex-1]) {
+      this.setState(Object.assign({}, newState, {shownAvatarIndex: 1}));
+    } else {
+      this.setState(newState);
+    }
   }
 
   _nextAvatar() {
