@@ -1,4 +1,8 @@
 .winner_block {
+  .winner_block__winner {
+    font-size: 1.5rem;
+    padding: 5px 20px;
+  }
 
   .winner_block__avatar {
     @include avatar(10px, 150px);
