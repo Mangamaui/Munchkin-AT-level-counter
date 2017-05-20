@@ -28,7 +28,7 @@ class CurrentPlayerModal extends React.Component {
         <LevelCounter levelType="characterLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
         <LevelCounter levelType="gearLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
         <h3 className="current_player_modal__combat_level_label">Combat level</h3>
-        <p className="current_player_modal__combat_level"> {this.props.currentPlayer.combatLevel}</p>
+        <p className="current_player_modal__combat_level level"> {this.props.currentPlayer.combatLevel}</p>
       </div>
     );
   }
