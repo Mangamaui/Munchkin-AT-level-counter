@@ -17,8 +17,8 @@ class App extends React.Component {
     this.state = {
       avatarSelector: null,
       currentGame: null,
-      disabled1: false,
-      disabled2: true,
+      disabled_add_btn: false,
+      disabled_start_btn: true,
       nextView: null,
       notificationMsg: null,
       playerName: null,
@@ -30,7 +30,7 @@ class App extends React.Component {
   render() {
     return(
       <div className="App">
-      {this._loadViews().call(this)}
+      {this.loadViews().call(this)}
       </div>
     )
   }
@@ -54,7 +54,7 @@ class App extends React.Component {
 /*====================================================*/
 /*                   View Switcher                    */
 /*====================================================*/
-  _loadViews() {
+  loadViews() {
     if(this.state.currentGame === null) {
       if(!this.state.splash) {
         this.loadStartHandler();
@@ -137,9 +137,9 @@ class App extends React.Component {
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
           <div className="button_wrap">
-            <CustomButton button_class="add-player-btn button_secundary" button_handler={this.addPlayerHandler.bind(this)} button_text="add player" disabled={this.state.disabled1}>
+            <CustomButton button_class="add-player-btn button_secundary" button_handler={this.addPlayerHandler.bind(this)} button_text="add player" disabled={this.state.disabled_add_btn}>
             </CustomButton>
-            <CustomButton button_class="start-btn button_primary" button_handler={this.overviewHandler.bind(this)} button_text="continue" disabled={this.state.disabled2}>
+            <CustomButton button_class="start-btn button_primary" button_handler={this.overviewHandler.bind(this)} button_text="continue" disabled={this.state.disabled_start_btn}>
             </CustomButton>
           </div>
         </div>
@@ -165,7 +165,7 @@ class App extends React.Component {
   }
 
   _activePlayerView() {
-    let playerLoad = this._loadActivePlayer();
+    let playerLoad = this.loadActivePlayer();
 
     return (
       <div className="activer_player_view">
@@ -179,12 +179,12 @@ class App extends React.Component {
   }
 
   _winnerView() {
-    let playerLoad = this._loadActivePlayer();
+    let playerLoad = this.loadActivePlayer();
     return (
       <div className="winner_view">
         <div className="winner_block content_wrap">
           <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
-          <h2 className="winner_block__winner">{playerLoad.name} wins this game!</h2>
+          <p className="winner_block__winner">{playerLoad.name} wins this game!</p>
           <img className="winner_block__avatar" src={getAvatar(playerLoad.avatar)}/>
 
           <p className="winner_block__text">Time for another round?</p>
