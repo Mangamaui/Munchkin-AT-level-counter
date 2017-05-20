@@ -199,36 +199,6 @@ class App extends React.Component {
 /*====================================================*/
 /*                    Event Handlers                  */
 /*====================================================*/
-  changeHandler(e) {
-    this.setState(
-      { [e.target.id]: e.target.value }
-    );
-  }
-
-  addPlayerHandler(e) {
-    let game = this.state.currentGame;
-    let limit = game.addPlayerToGame({
-      name: this.state.playerName,
-      avatar: this.state.avatarSelector.state.selectedAvatarID,
-      tablePosition: (this.state.tablePosition+=1)
-    });
-
-    UpdateAvailableAvatars(this.state.avatarSelector.state.selectedAvatarID);
-
-    if (limit) {
-      this.setState({disabled1: true});
-    }
-
-    this.checkPlayerMinimum();
-    this.forceUpdate();
-  }
-
-  checkPlayerMinimum() {
-    if(this.state.currentGame.playerList.length > 2){
-      this.setState({disabled2: false});
-      this.forceUpdate();
-    }
-  }
 
   loadStartHandler() {
     setTimeout(function(){
@@ -278,13 +248,51 @@ class App extends React.Component {
 /*====================================================*/
 /*                  General Functions                 */
 /*====================================================*/
-  _loadActivePlayer() {
+  loadActivePlayer() {
     let activePlayer = this.state.currentGame.activePlayer;
     return this.state.currentGame.playerList.find(function(player){
       return player.tablePosition === activePlayer;
     })
   }
+
+  changeHandler(e) {
+    this.setState(
+      { [e.target.id]: e.target.value }
+    );
+  }
+
+  addPlayerHandler(e) {
+    let game = this.state.currentGame;
+    let limit = game.addPlayerToGame({
+      name: this.state.playerName,
+      avatar: this.state.avatarSelector.state.selectedAvatarID,
+      tablePosition: (this.state.tablePosition+=1)
+    });
+
+    UpdateAvailableAvatars(this.state.avatarSelector.state.selectedAvatarID);
+
+    if (limit) {
+      this.setState({disabled_add_btn: true});
+    }
+
+    this.clearInput();
+    this.checkPlayerMinimum();
+    this.forceUpdate();
+  }
+
+  clearInput() {
+    let input = document.getElementById('playerName');
+    input.value = "";
+  }
+
+  checkPlayerMinimum() {
+    if(this.state.currentGame.playerList.length > 2){
+      this.setState({disabled_start_btn: false});
+      this.forceUpdate();
+    }
+  }
 }
+
 
 
 module.exports = App;
