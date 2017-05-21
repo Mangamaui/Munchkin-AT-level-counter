@@ -1,7 +1,7 @@
 let React =  require('react');
 let player = require('../lib/player');
 let LevelCounter = require('./LevelCounter');
-let getAvatar = require('../lib/avatars').GetAvatar;
+let getAvatar = require('../lib/avatars').getAvatar;
 
 class CurrentPlayerModal extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class CurrentPlayerModal extends React.Component {
     this.state = {
       currentGame: props.currentGame
     };
-
   }
 
   notify() {

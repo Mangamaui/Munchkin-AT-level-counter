@@ -3,7 +3,7 @@ let React =  require('react');
 let game = require('../lib/game');
 let player = require('../lib/player');
 let avatars = require('../lib/avatars');
-let getAvatar = require('../lib/avatars').GetAvatar;
+let getAvatar = require('../lib/avatars').getAvatar;
 // Components
 let AvatarSelector = require('./AvatarSelector');
 let PlayerBadge = require('./PlayerBadge');

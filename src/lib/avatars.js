@@ -64,7 +64,7 @@ module.exports = {
       }
     })();
   },
-  GetAvatar: function(currentPlayer) {
+  getAvatar: function(currentPlayer) {
     let id = currentPlayer;
     let image = null;
 
