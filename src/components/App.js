@@ -213,8 +213,17 @@ class App extends React.Component {
 
   restartGameHandler() {
     game.removeSaveGame();
-    this.setState({nextView: null});
-    this.setState({currentGame: game.create()});
+    avatars.resetStates();
+    this.setState({
+      selectedAvatarID: null,
+      currentGame: game.create(),
+      disabled_add_btn: false,
+      disabled_start_btn: true,
+      nextView: null,
+      notificationMsg: null,
+      playerName: null,
+      tablePosition: 0
+    });
   }
 
   loadGameHandler() {
@@ -252,7 +261,7 @@ class App extends React.Component {
     let activePlayer = this.state.currentGame.activePlayer;
     return this.state.currentGame.playerList.find(function(player){
       return player.tablePosition === activePlayer;
-    })
+    });
   }
 
   changeHandler(e) {
