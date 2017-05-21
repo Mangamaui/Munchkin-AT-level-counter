@@ -23,7 +23,7 @@ class CurrentPlayerModal extends React.Component {
     return (
       <div className="current_player_modal content_wrap" onClick={this.clickHandler.bind(this)}>
         <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
-        <img className="current_player_modal__avatar" src={this._getAvatar()} />
+        <img className="current_player_modal__avatar" src={this.loadAvatar()} />
         <h2 className="current_player_modal__name">{this.props.currentPlayer.name}</h2>
         <LevelCounter levelType="characterLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
         <LevelCounter levelType="gearLevel" currentPlayer={this.props.currentPlayer} notify={notify} />
@@ -37,7 +37,7 @@ class CurrentPlayerModal extends React.Component {
     this.state.currentGame.checkIfActivePlayerWins();
   }
 
-  _getAvatar() {
+  loadAvatar() {
     return getAvatar(this.props.currentPlayer.avatar);
   }
 }
