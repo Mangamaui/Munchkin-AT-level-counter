@@ -1,6 +1,6 @@
 let React = require('React');
 let player = require('../lib/player');
-let AvatarList = require('../lib/avatars').AvatarList;
+let avatarList = require('../lib/avatars').avatarList;
 let getAvatar = require('../lib/avatars').getAvatar;
 
 class PlayerBadge extends React.Component {

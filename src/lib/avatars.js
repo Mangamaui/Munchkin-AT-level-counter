@@ -50,8 +50,8 @@ const avatarList = [
 let availableAvatarList = avatarList.slice();
 
 module.exports = {
-  AvatarList: avatarList,
-  AvailableAvatarList: availableAvatarList,
+  avatarList: avatarList,
+  availableAvatarList: availableAvatarList,
   selectedAvatarID: avatarList[0].id,
   updateAvailableAvatars: function(id) {
     let index = availableAvatarList.findIndex(avatar => avatar.id === id);
