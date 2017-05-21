@@ -292,6 +292,7 @@ class App extends React.Component {
   clearInput() {
     let input = document.getElementById('playerName');
     input.value = "";
+    this.setState({playerName: null});
   }
 
   checkPlayerMinimum() {
