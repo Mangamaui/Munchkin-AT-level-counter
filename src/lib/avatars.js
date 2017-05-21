@@ -53,7 +53,7 @@ module.exports = {
   AvatarList: avatarList,
   AvailableAvatarList: availableAvatarList,
   selectedAvatarID: avatarList[0].id,
-  UpdateAvailableAvatars: function(id) {
+  updateAvailableAvatars: function(id) {
     let index = availableAvatarList.findIndex(avatar => avatar.id === id);
     availableAvatarList.splice(index, 1);
     module.exports.selectedAvatarID = (function(){

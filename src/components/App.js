@@ -278,7 +278,7 @@ class App extends React.Component {
       tablePosition: (this.state.tablePosition+=1)
     });
 
-    avatars.UpdateAvailableAvatars(avatars.selectedAvatarID);
+    avatars.updateAvailableAvatars(avatars.selectedAvatarID);
 
     if (LIMIT) {
       this.setState({disabled_add_btn: true});
