@@ -52,12 +52,19 @@ const availableAvatarList = avatarList.slice();
 module.exports = {
   AvatarList: avatarList,
   AvailableAvatarList: availableAvatarList,
+  selectedAvatarID: avatarList[0].id,
   UpdateAvailableAvatars: function(id) {
     let index = availableAvatarList.findIndex(avatar => avatar.id === id);
     availableAvatarList.splice(index, 1);
+    module.exports.selectedAvatarID = (function(){
+      if(availableAvatarList[index]) {
+        return availableAvatarList[index].id;
+      } else {
+        return availableAvatarList[0].id;
+      }
+    })();
   },
   GetAvatar: function(currentPlayer) {
-    console.log(currentPlayer);
     let id = currentPlayer;
     let image = null;
 
