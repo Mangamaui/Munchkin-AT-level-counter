@@ -166,11 +166,11 @@ class App extends React.Component {
   }
 
   _activePlayerView() {
-    let playerLoad = this.loadActivePlayer();
+    const ACTIVE_PLAYER = this.loadActivePlayer();
 
     return (
       <div className="activer_player_view">
-        <CurrentPlayerModal currentPlayer={playerLoad} currentGame={this.state.currentGame} />
+        <CurrentPlayerModal currentPlayer={ACTIVE_PLAYER} currentGame={this.state.currentGame} />
         <div className="button_wrap">
           <CustomButton button_class="nextTurn-btn button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="end turn">
           </CustomButton>
@@ -180,13 +180,13 @@ class App extends React.Component {
   }
 
   _winnerView() {
-    let playerLoad = this.loadActivePlayer();
+    const ACTIVE_PLAYER = this.loadActivePlayer();
     return (
       <div className="winner_view">
         <div className="winner_block content_wrap">
           <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
-          <p className="winner_block__winner">{playerLoad.name} wins this game!</p>
-          <img className="winner_block__avatar" src={getAvatar(playerLoad.avatar)}/>
+          <p className="winner_block__winner">{ACTIVE_PLAYER.name} wins this game!</p>
+          <img className="winner_block__avatar" src={getAvatar(ACTIVE_PLAYER.avatar)}/>
 
           <p className="winner_block__text">Time for another round?</p>
         </div>
@@ -227,10 +227,10 @@ class App extends React.Component {
   }
 
   loadGameHandler() {
-    let load = game.load();
+    const LOAD = game.load();
 
     if(load) {
-      this.setState({currentGame: load},function() {
+      this.setState({currentGame: LOAD},function() {
         this.setState({nextView: 1});
       });
     } else {
@@ -258,9 +258,9 @@ class App extends React.Component {
 /*                  General Functions                 */
 /*====================================================*/
   loadActivePlayer() {
-    let activePlayer = this.state.currentGame.activePlayer;
+    const ACTIVE_PLAYER = this.state.currentGame.activePlayer;
     return this.state.currentGame.playerList.find(function(player){
-      return player.tablePosition === activePlayer;
+      return player.tablePosition === ACTIVE_PLAYER;
     });
   }
 
@@ -271,8 +271,8 @@ class App extends React.Component {
   }
 
   addPlayerHandler(e) {
-    let game = this.state.currentGame;
-    let limit = game.addPlayerToGame({
+    const GAME = this.state.currentGame;
+    const LIMIT = GAME.addPlayerToGame({
       name: this.state.playerName,
       avatar: avatars.selectedAvatarID,
       tablePosition: (this.state.tablePosition+=1)
@@ -280,7 +280,7 @@ class App extends React.Component {
 
     avatars.UpdateAvailableAvatars(avatars.selectedAvatarID);
 
-    if (limit) {
+    if (LIMIT) {
       this.setState({disabled_add_btn: true});
     }
 
