@@ -1,14 +1,12 @@
 let React =  require('react');
+let avatars = require('../lib/avatars');
 let AvatarList = require('../lib/avatars').AvailableAvatarList;
 let CustomButton = require('./button');
 
 class AvatarSelector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      shownAvatarIndex: 1,
-      selectedAvatarID: AvatarList[0].id
-    };
+    this.state = { shownAvatarIndex: 1 };
   }
 
   render() {
@@ -28,36 +26,44 @@ class AvatarSelector extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const newState = {selectedAvatarID: AvatarList[0].id};
-
     if (!AvatarList[this.state.shownAvatarIndex-1]) {
-      this.setState(Object.assign({}, newState, {shownAvatarIndex: 1}));
-    } else {
-      this.setState(newState);
+      this.setState({shownAvatarIndex: 1});
     }
   }
 
   _nextAvatar() {
     if (this.state.shownAvatarIndex === AvatarList.length) {
       //disable button or cycle back to first
-      this.setState({shownAvatarIndex: 1}, () => this._updateSelectedAvatar());
+      this.setState(
+        {shownAvatarIndex: 1},
+        () => this._updateSelectedAvatar()
+      );
     } else {
-      this.setState({shownAvatarIndex: this.state.shownAvatarIndex+1}, () => this._updateSelectedAvatar());
+      this.setState(
+        {shownAvatarIndex: this.state.shownAvatarIndex+1},
+        () => this._updateSelectedAvatar()
+      );
     }
   }
 
   _previousAvatar() {
     if (this.state.shownAvatarIndex === 1) {
       //disable button or cycle back to last
-      this.setState({shownAvatarIndex: AvatarList.length }, () => this._updateSelectedAvatar());
+      this.setState(
+        {shownAvatarIndex: AvatarList.length },
+        () => this._updateSelectedAvatar()
+      );
     } else {
-      this.setState({shownAvatarIndex: this.state.shownAvatarIndex -1}, () => this._updateSelectedAvatar());
+      this.setState(
+        {shownAvatarIndex: this.state.shownAvatarIndex -1},
+        () => this._updateSelectedAvatar()
+      );
     }
   }
 
   _updateSelectedAvatar() {
     let id = AvatarList[this.state.shownAvatarIndex-1].id;
-    this.setState({selectedAvatarID: id });
+    avatars.selectedAvatarID = id;
   }
 };
 
