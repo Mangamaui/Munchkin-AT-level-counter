@@ -33,9 +33,9 @@ const game = {
   },
 
   checkIfActivePlayerWins: function() {
-    let activePlayer = this.activePlayer;
+    const ACTIVE_PLAYER = this.activePlayer;
     let currentPlayer = this.playerList.find(function(player){
-      return player.tablePosition === activePlayer;
+      return player.tablePosition === ACTIVE_PLAYER;
     });
 
     if(currentPlayer.characterLevel === 10) {
