@@ -13,13 +13,13 @@ class AvatarSelector extends React.Component {
   render() {
     return (
       <div className="AvatarSelector">
-        <CustomButton button_class="previous-btn button_tertiary" button_handler={this._previousAvatar.bind(this)} button_text="previous">
+        <CustomButton button_class="previous-btn button_tertiary" button_handler={this.previousAvatar.bind(this)} button_text="previous">
           <i className="icon icon-arrow-left-thick"></i>
         </CustomButton>
           <div className="avatar">
             <img src={avatarList[this.state.shownAvatarIndex-1].image} />
           </div>
-          <CustomButton button_class="next-btn button_tertiary" button_handler={this._nextAvatar.bind(this)} button_text="next">
+          <CustomButton button_class="next-btn button_tertiary" button_handler={this.nextAvatar.bind(this)} button_text="next">
             <i className="icon icon-arrow-right-thick"></i>
           </CustomButton>
       </div>
@@ -32,27 +32,27 @@ class AvatarSelector extends React.Component {
     }
   }
 
-  _nextAvatar() {
+  nextAvatar() {
     if (this.state.shownAvatarIndex === avatarList.length) {
       //disable button or cycle back to first
       this.setState(
         {shownAvatarIndex: 1},
-        () => this._updateSelectedAvatar()
+        () => this.updateSelectedAvatar()
       );
     } else {
       this.setState(
         {shownAvatarIndex: this.state.shownAvatarIndex+1},
-        () => this._updateSelectedAvatar()
+        () => this.updateSelectedAvatar()
       );
     }
   }
 
-  _previousAvatar() {
+  previousAvatar() {
     if (this.state.shownAvatarIndex === 1) {
       //disable button or cycle back to last
       this.setState(
         {shownAvatarIndex: avatarList.length },
-        () => this._updateSelectedAvatar()
+        () => this.updateSelectedAvatar()
       );
     } else {
       this.setState(
@@ -62,7 +62,7 @@ class AvatarSelector extends React.Component {
     }
   }
 
-  _updateSelectedAvatar() {
+  updateSelectedAvatar() {
     let id = avatarList[this.state.shownAvatarIndex-1].id;
     avatars.selectedAvatarID = id;
   }
