@@ -1,6 +1,7 @@
 let React =  require('react');
 let avatars = require('../lib/avatars');
 let AvatarList = require('../lib/avatars').AvailableAvatarList;
+//components
 let CustomButton = require('./button');
 
 class AvatarSelector extends React.Component {

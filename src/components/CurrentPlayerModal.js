@@ -1,7 +1,8 @@
 let React =  require('react');
 let player = require('../lib/player');
-let LevelCounter = require('./LevelCounter');
 let getAvatar = require('../lib/avatars').getAvatar;
+//compontents
+let LevelCounter = require('./LevelCounter');
 
 class CurrentPlayerModal extends React.Component {
   constructor(props) {
