@@ -47,7 +47,7 @@ const avatarList = [
   }
 ];
 
-const availableAvatarList = avatarList.slice();
+let availableAvatarList = avatarList.slice();
 
 module.exports = {
   AvatarList: avatarList,
@@ -75,5 +75,20 @@ module.exports = {
       }
     });
     return image;
+  },
+  resetStates: function() {
+    avatarList.forEach(a => {
+      if (availableAvatarList.indexOf(a) == -1) {
+        availableAvatarList.push(a);
+      }
+    });
+
+    availableAvatarList.sort((a, b) => {
+      if (a.id < b.id) return -1;
+      else if (a.id > b.id) return 1;
+      return 0;
+    });
+
+    module.exports.selectedAvatarID = avatarList[0].id;
   }
 }
