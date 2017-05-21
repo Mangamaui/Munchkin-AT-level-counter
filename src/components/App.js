@@ -1,12 +1,13 @@
-//layout, routers
 let React =  require('react');
+// non-components
 let game = require('../lib/game');
 let player = require('../lib/player');
+let avatars = require('../lib/avatars');
+let getAvatar = require('../lib/avatars').GetAvatar;
+// Components
 let AvatarSelector = require('./AvatarSelector');
 let PlayerBadge = require('./PlayerBadge');
 let CurrentPlayerModal = require('./CurrentPlayerModal');
-let UpdateAvailableAvatars = require('../lib/avatars').UpdateAvailableAvatars;
-let getAvatar = require('../lib/avatars').GetAvatar;
 let CustomButton = require('./button');
 
 
@@ -15,7 +16,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      avatarSelector: null,
+      selectedAvatarID: null,
       currentGame: null,
       disabled_add_btn: false,
       disabled_start_btn: true,
@@ -35,7 +36,7 @@ class App extends React.Component {
     )
   }
 
-  /*
+/*
 
 1 load splash
 2 load app choices
@@ -131,7 +132,7 @@ class App extends React.Component {
             <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
             <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
             <div className="player_creator">
-              <AvatarSelector ref={c => this.state.avatarSelector = c} />
+              <AvatarSelector />
               <input className="player_creator__input" type="text" id="playerName" placeholder="player name" onChange={this.changeHandler.bind(this)}/>
             </div>
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
@@ -224,7 +225,6 @@ class App extends React.Component {
         this.setState({nextView: 1});
       });
     } else {
-      //console.log("msg test");
       this.setState({notificationMsg: "No savegame was found"});
     }
   }
@@ -265,11 +265,11 @@ class App extends React.Component {
     let game = this.state.currentGame;
     let limit = game.addPlayerToGame({
       name: this.state.playerName,
-      avatar: this.state.avatarSelector.state.selectedAvatarID,
+      avatar: avatars.selectedAvatarID,
       tablePosition: (this.state.tablePosition+=1)
     });
 
-    UpdateAvailableAvatars(this.state.avatarSelector.state.selectedAvatarID);
+    avatars.UpdateAvailableAvatars(avatars.selectedAvatarID);
 
     if (limit) {
       this.setState({disabled_add_btn: true});
