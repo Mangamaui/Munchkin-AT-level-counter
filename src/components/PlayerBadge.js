@@ -1,4 +1,5 @@
 let React = require('React');
+// non-components
 let player = require('../lib/player');
 let avatarList = require('../lib/avatars').avatarList;
 let getAvatar = require('../lib/avatars').getAvatar;

@@ -14,19 +14,19 @@ class LevelCounter extends React.Component {
   }
 
   clickHandler(action) {
-    let lvlType = this.setToUpperCase();
+    const LVL_TYPE = this.setToUpperCase();
 
     return function() {
-      this.props.currentPlayer[action + lvlType]();
+      this.props.currentPlayer[action + LVL_TYPE]();
       this.props.currentPlayer.updateCombatLevel();
       this.props.notify();
     };
   }
   setLevelTypeTitle() {
     let lvlType = this.setToUpperCase();
-    let pos = lvlType.indexOf("Level");
-    let word = lvlType.slice(0,pos) + " " + lvlType.slice(pos);
-    return word;
+    const POS = lvlType.indexOf("Level");
+    const WORD = lvlType.slice(0, POS) + " " + lvlType.slice(POS);
+    return WORD;
   }
 
   setToUpperCase() {

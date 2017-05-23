@@ -1,4 +1,5 @@
 let React =  require('react');
+// non-components
 let avatars = require('../lib/avatars');
 let avatarList = require('../lib/avatars').availableAvatarList;
 //components
@@ -27,7 +28,7 @@ class AvatarSelector extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!avatarList[this.state.shownAvatarIndex-1]) {
+    if (!avatarList[this.state.shownAvatarIndex - 1]) {
       this.setState({shownAvatarIndex: 1});
     }
   }
@@ -41,7 +42,7 @@ class AvatarSelector extends React.Component {
       );
     } else {
       this.setState(
-        {shownAvatarIndex: this.state.shownAvatarIndex+1},
+        {shownAvatarIndex: this.state.shownAvatarIndex + 1},
         () => this.updateSelectedAvatar()
       );
     }
@@ -56,14 +57,14 @@ class AvatarSelector extends React.Component {
       );
     } else {
       this.setState(
-        {shownAvatarIndex: this.state.shownAvatarIndex -1},
+        {shownAvatarIndex: this.state.shownAvatarIndex - 1},
         () => this._updateSelectedAvatar()
       );
     }
   }
 
   updateSelectedAvatar() {
-    let id = avatarList[this.state.shownAvatarIndex-1].id;
+    let id = avatarList[this.state.shownAvatarIndex - 1].id;
     avatars.selectedAvatarID = id;
   }
 };

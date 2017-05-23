@@ -17,12 +17,12 @@ const player = {
   },
   increaseCharacterLevel: function() {
     if(this.characterLevel < 10){
-      this.characterLevel+=1;
+      this.characterLevel += 1;
     }
   },
   decreaseCharacterLevel: function() {
     if(this.characterLevel > 0){
-      this.characterLevel-=1;
+      this.characterLevel -= 1;
     }
   },
   increaseGearLevel: function() {
@@ -30,7 +30,7 @@ const player = {
   },
   decreaseGearLevel: function() {
     if(this.gearLevel > 0 ) {
-      this.gearLevel-=1;
+      this.gearLevel -= 1;
     }
   }
 };
@@ -38,8 +38,8 @@ const player = {
 module.exports.playerObj = player;
 
 module.exports.create = function() {
-  let newPlayer = Object.assign({}, player);
+  const NEW_PLAYER = Object.assign({}, player);
   counter++;
-  newPlayer.id = counter;
-  return newPlayer;
+  NEW_PLAYER.id = counter;
+  return NEW_PLAYER;
 };

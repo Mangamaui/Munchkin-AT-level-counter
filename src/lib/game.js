@@ -26,7 +26,7 @@ const game = {
       this.nextPlayer = 2;
     } else if (this.activePlayer && !this.saveGame ) {
       this.activePlayer = this.nextPlayer;
-      if((this.nextPlayer+1) > this.playerList.length) {
+      if((this.nextPlayer + 1) > this.playerList.length) {
         this.nextPlayer = 1;
       } else {
         this.nextPlayer++;
@@ -36,14 +36,15 @@ const game = {
 
   checkIfActivePlayerWins: function() {
     const ACTIVE_PLAYER = this.activePlayer;
-    let currentPlayer = this.playerList.find(function(player){
+    const CURRENT_PLAYER = this.playerList.find(function(player){
       return player.tablePosition === ACTIVE_PLAYER;
     });
 
-    if(currentPlayer.characterLevel === 10) {
-      this.winner = currentPlayer.id;
+    if(CURRENT_PLAYER.characterLevel === 10) {
+      this.winner = CURRENT_PLAYER.id;
       return true;
     } else {
+      this.winner = null;
       return false;
     }
   }

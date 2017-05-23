@@ -54,26 +54,23 @@ module.exports = {
   availableAvatarList: availableAvatarList,
   selectedAvatarID: avatarList[0].id,
   updateAvailableAvatars: function(id) {
-    let index = availableAvatarList.findIndex(avatar => avatar.id === id);
-    availableAvatarList.splice(index, 1);
+    const INDEX = availableAvatarList.findIndex(avatar => avatar.id === id);
+    availableAvatarList.splice(INDEX, 1);
     module.exports.selectedAvatarID = (function(){
-      if(availableAvatarList[index]) {
-        return availableAvatarList[index].id;
+      if(availableAvatarList[INDEX]) {
+        return availableAvatarList[INDEX].id;
       } else {
         return availableAvatarList[0].id;
       }
     })();
   },
   getAvatar: function(currentPlayer) {
-    let id = currentPlayer;
-    let image = null;
+    const ID = currentPlayer;
+    const image = avatarList.reduce(
+      (acc, avatar) => avatar.id == ID ? avatar.image : acc,
+      avatarList[0].image
+    );
 
-    avatarList.forEach(function(avatar) {
-
-      if(avatar.id == id) {
-         image = avatar.image;
-      }
-    });
     return image;
   },
   resetStates: function() {
