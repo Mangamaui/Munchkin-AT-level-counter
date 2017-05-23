@@ -26,33 +26,31 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  #container {
-    padding: 10px;
-    text-align: center;
+#container {
+  padding: 10px;
+  text-align: center;
 
+  @include bigPhone {
+    padding-top: 60px;
   }
-  .logo {
-    @include centerComponent();
-    background-image: url('#{$image-path}adventure_time_logo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 103px;
-    width: 260px;
-  }
+}
 
-  h1 {
-    @include bahiana(2.5rem);
+.logo {
+  background-image: url('#{$image-path}adventure_time_logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 103px;
+  width: 260px;
+}
+
+h1 {
+  @include bahiana(2.5rem);
+  display: block;
+
+  .brand-name {
     display: block;
-    position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-
-
-    .brand-name {
-      display: block;
-      font-size: 1.875rem;
-    }
+    font-size: 1.875rem;
   }
 }
