@@ -229,7 +229,7 @@ class App extends React.Component {
   loadGameHandler() {
     const LOAD = game.load();
 
-    if(load) {
+    if(LOAD) {
       this.setState({currentGame: LOAD},function() {
         this.setState({nextView: 1});
       });
