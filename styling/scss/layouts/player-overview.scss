@@ -1,3 +1,7 @@
 .l-player_overview {
-
+  @include bigPhone {
+    .PlayerBadge:not(:first-child) {
+        margin-top: 6px;
+    }
+  }
 }
