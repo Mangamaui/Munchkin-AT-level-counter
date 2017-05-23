@@ -204,7 +204,7 @@ class App extends React.Component {
   loadStartHandler() {
     setTimeout(function(){
       this.setState({splash: true});
-    }.bind(this), 500);
+    }.bind(this), 1000);
   }
 
   newGameHandler() {
@@ -280,9 +280,7 @@ class App extends React.Component {
 
     avatars.updateAvailableAvatars(avatars.selectedAvatarID);
 
-    if (LIMIT) {
-      this.setState({disabled_add_btn: true});
-    }
+    this.setState({disabled_add_btn: LIMIT});
 
     this.clearInput();
     this.checkPlayerMinimum();
