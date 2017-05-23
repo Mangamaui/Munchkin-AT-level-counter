@@ -31,3 +31,9 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+@mixin bigPhone() {
+  @media (min-height: #{$big-phone-height}) {
+    @content;
+  }
+}
