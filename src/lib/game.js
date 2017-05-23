@@ -9,12 +9,14 @@ const game = {
 
   addPlayerToGame: function(obj){
     if(this.playerList.length < 6) {
-      let newPlayer = player.create();
-      Object.assign(newPlayer, obj);
-      this.playerList.push(newPlayer);
+      const NEW_PLAYER = player.create();
+      Object.assign(NEW_PLAYER, obj);
+      this.playerList.push(NEW_PLAYER);
 
       if(this.playerList.length === 6) {
-        return "disabled";
+        return true;
+      } else {
+        return false;
       }
     }
   },
