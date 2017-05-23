@@ -97,7 +97,7 @@ class App extends React.Component {
 /*====================================================*/
   splashScreen() {
     return (
-      <div>
+      <div className="l-splash_view">
        <div className="logo">
        </div>
        <h1><span className="brand-name">Munchkin</span> level counter</h1>
@@ -107,7 +107,7 @@ class App extends React.Component {
 
   startView() {
     return (
-      <div className="welcome_view" >
+      <div className="l-welcome_view" >
         <div className="content_wrap">
           <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
           <p>Welcome to the Munchkin Adventure Time Level Counter!</p>
@@ -154,7 +154,7 @@ class App extends React.Component {
     });
 
     return (
-      <div className="player_overview">
+      <div className="l-player_overview">
         {list}
 
         <div className="button_wrap">
@@ -169,7 +169,7 @@ class App extends React.Component {
     const ACTIVE_PLAYER = this.loadActivePlayer();
 
     return (
-      <div className="activer_player_view">
+      <div className="l-active_player_view">
         <CurrentPlayerModal currentPlayer={ACTIVE_PLAYER} currentGame={this.state.currentGame} />
         <div className="button_wrap">
           <CustomButton button_class="nextTurn-btn button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="end turn">
@@ -182,7 +182,7 @@ class App extends React.Component {
   winnerView() {
     const ACTIVE_PLAYER = this.loadActivePlayer();
     return (
-      <div className="winner_view">
+      <div className="l-winner_view">
         <div className="winner_block content_wrap">
           <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
           <p className="winner_block__winner">{ACTIVE_PLAYER.name} wins this game!</p>
