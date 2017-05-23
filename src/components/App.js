@@ -59,9 +59,9 @@ class App extends React.Component {
     if(this.state.currentGame === null) {
       if(!this.state.splash) {
         this.loadStartHandler();
-        return this._splashScreen;
+        return this.splashScreen;
       } else {
-        return this._startView;
+        return this.startView;
       }
 
     } else {
@@ -70,23 +70,23 @@ class App extends React.Component {
 
       switch (this.state.nextView) {
         case 1:
-          viewToShow = this._playerOverview;
+          viewToShow = this.playerOverview;
           break;
 
         case 2:
-          viewToShow = this._activePlayerView;
+          viewToShow = this.activePlayerView;
           break;
 
         case 3:
-          viewToShow = this._winnerView;
+          viewToShow = this.winnerView;
           break;
 
         case 4:
-          viewToShow = this._startView;
+          viewToShow = this.startView;
           break;
 
         default:
-          viewToShow = this._newGameView;
+          viewToShow = this.newGameView;
       }
 
       return viewToShow;
@@ -95,7 +95,7 @@ class App extends React.Component {
 /*====================================================*/
 /*                   View Templates                   */
 /*====================================================*/
-  _splashScreen() {
+  splashScreen() {
     return (
       <div>
        <div className="logo">
@@ -105,7 +105,7 @@ class App extends React.Component {
     )
   }
 
-  _startView() {
+  startView() {
     return (
       <div className="welcome_view" >
         <div className="content_wrap">
@@ -124,10 +124,10 @@ class App extends React.Component {
     )
   }
 
-  _newGameView() {
+  newGameView() {
     return (
       <div>
-        <div className="new_game_view">
+        <div className="l-new_game_view">
           <div className="content_wrap">
             <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
             <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
@@ -148,7 +148,7 @@ class App extends React.Component {
     )
   }
 
-  _playerOverview() {
+  playerOverview() {
     let list = this.state.currentGame.playerList.map(function(player){
         return <PlayerBadge key={player.id} currentPlayer={player} />;
     });
@@ -165,7 +165,7 @@ class App extends React.Component {
     )
   }
 
-  _activePlayerView() {
+  activePlayerView() {
     const ACTIVE_PLAYER = this.loadActivePlayer();
 
     return (
@@ -179,7 +179,7 @@ class App extends React.Component {
     )
   }
 
-  _winnerView() {
+  winnerView() {
     const ACTIVE_PLAYER = this.loadActivePlayer();
     return (
       <div className="winner_view">
