@@ -2,13 +2,19 @@
 @import "mixins";
 @import "fonts";
 @import "colors";
+
+//components
 @import "components/buttons";
 @import "components/avatar";
+@import "Components/contentWrap";
+@import "Components/formComponents";
 @import "components/playerBadge";
 @import "components/levelCounter";
 @import "components/currentPlayerModal";
-@import "Components/contentWrap";
 
+
+//layouts
+@import "layouts/splash-view";
 @import "layouts/welcome-view";
 @import "layouts/new-game-view";
 @import "layouts/winner-block";

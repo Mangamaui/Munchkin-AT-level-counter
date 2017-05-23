@@ -1,0 +1,9 @@
+.l-splash_view {
+  @include centerComponent();
+  position: absolute;
+  text-align: center;
+
+  .logo {
+    display: inline-block;
+  }
+}
