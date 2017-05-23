@@ -40,6 +40,10 @@ button {
   left: 0;
   position: absolute;
   width: 100%;
+
+  @include bigPhone {
+    bottom: 30px;
+  }
 }
 
 .button_primary {
