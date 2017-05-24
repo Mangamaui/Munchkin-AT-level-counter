@@ -11,7 +11,7 @@ h1, h2, h3,h4, h5, h6 {
 p {
   display: inline-block;
   width: 240px;
-  @include desktop {
+  @include tablet {
     width: 560px;
   }
 }
@@ -25,11 +25,13 @@ body {
   background-image: url('#{$image-path}background-blurred.png');
   background-repeat: no-repeat;
   background-position: top center;
+  background-size: cover;
   color: white;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: $min-width;
+  min-height: 100vh;
 }
 
 #container {
@@ -59,7 +61,7 @@ h1 {
   }
 }
 
-@include desktop {
+@include tablet {
   .logo {
     height: 277px;
     width: 700px;

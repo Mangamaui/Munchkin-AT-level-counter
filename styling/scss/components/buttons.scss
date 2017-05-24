@@ -41,14 +41,24 @@ button {
   position: absolute;
   width: 100%;
 
+  @include phoneOnly {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+
   @include bigPhone {
     bottom: 30px;
   }
 
-  @include desktop {
-    .button:first-child {
-      margin-right: 50px;
-      margin-bottom: 0;
+  @include tablet {
+    .button{
+      &:not(:first-child) {
+        margin-left: 50px;
+      }
+      :first-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -64,7 +74,6 @@ button {
 }
 
 .button_tertiary {
-  //@include button-colorScheme($yellow, 20%);
   font-size: 2rem;
   height: 42px;
   line-height: 1;
@@ -85,7 +94,7 @@ button {
     display: none;
   }
 
-  @include desktop {
+  @include tablet {
     height: 50px;
     width: 50px;
   }
