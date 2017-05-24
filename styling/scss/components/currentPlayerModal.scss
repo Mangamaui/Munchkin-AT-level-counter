@@ -27,12 +27,18 @@
   }
 
   .level {
-    width: 1.11em;
+    width: 1.11rem;
   }
 
-  @include desktop {
+  @include tablet {
     .current_player_modal__avatar {
       @include avatar(10px, 130px);
+      margin: 5px 0;
+    }
+
+    .level {
+      font-size: 2.5rem;
+      width: auto;
     }
   }
 }
