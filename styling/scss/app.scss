@@ -11,6 +11,9 @@ h1, h2, h3,h4, h5, h6 {
 p {
   display: inline-block;
   width: 240px;
+  @include desktop {
+    width: 560px;
+  }
 }
 
 html {
@@ -26,6 +29,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: $min-width;
 }
 
 #container {
@@ -52,5 +56,22 @@ h1 {
   .brand-name {
     display: block;
     font-size: 1.875rem;
+  }
+}
+
+@include desktop {
+  .logo {
+    height: 277px;
+    width: 700px;
+  }
+
+  h1 {
+    font-size: 6.25rem;
+    line-height: 0.8em;
+    margin-top: 20px;
+
+    .brand-name {
+      font-size: 3.75rem;
+    }
   }
 }
