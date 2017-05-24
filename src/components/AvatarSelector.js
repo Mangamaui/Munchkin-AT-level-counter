@@ -3,7 +3,7 @@ let React =  require('react');
 let avatars = require('../lib/avatars');
 let avatarList = require('../lib/avatars').availableAvatarList;
 //components
-let CustomButton = require('./button');
+let SquareButton = require('./SquareButton');
 
 class AvatarSelector extends React.Component {
   constructor(props) {
@@ -14,15 +14,15 @@ class AvatarSelector extends React.Component {
   render() {
     return (
       <div className="AvatarSelector">
-        <CustomButton button_class="previous-btn button_tertiary" button_handler={this.previousAvatar.bind(this)} button_text="previous">
+        <SquareButton button_class="previous-btn button_tertiary" button_handler={this.previousAvatar.bind(this)} button_text="previous">
           <i className="icon icon-arrow-left-thick"></i>
-        </CustomButton>
+        </SquareButton>
           <div className="avatar">
             <img src={avatarList[this.state.shownAvatarIndex-1].image} />
           </div>
-          <CustomButton button_class="next-btn button_tertiary" button_handler={this.nextAvatar.bind(this)} button_text="next">
+          <SquareButton button_class="next-btn button_tertiary" button_handler={this.nextAvatar.bind(this)} button_text="next">
             <i className="icon icon-arrow-right-thick"></i>
-          </CustomButton>
+          </SquareButton>
       </div>
     );
   }
@@ -58,7 +58,7 @@ class AvatarSelector extends React.Component {
     } else {
       this.setState(
         {shownAvatarIndex: this.state.shownAvatarIndex - 1},
-        () => this._updateSelectedAvatar()
+        () => this.updateSelectedAvatar()
       );
     }
   }
