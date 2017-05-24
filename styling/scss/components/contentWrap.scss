@@ -12,7 +12,20 @@
     width: 100%;
     height: 100%;
   }
+  .desktop_slab {
+    display: none;
+  }
+
   @include bigPhone {
     margin-top: 30px;
+  }
+
+  @include desktop {
+    img.desktop_slab {
+      display: block;
+    }
+    img.mobile_slab {
+      display: none;
+    }
   }
 }

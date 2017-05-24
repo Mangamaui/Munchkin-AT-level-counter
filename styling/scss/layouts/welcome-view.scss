@@ -5,17 +5,45 @@
     position: relative;
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
       z-index: -1;
-      width: 100%;
-      height: 100%;
+      // width: 100%;
+      // height: 100%;
     }
 
     p {
       line-height: 1.75em;
       font-size: 1.125rem;
     }
+    .desktop_only {
+      display: none;
+    }
+  }
+
+  @include desktop {
+    .content_wrap {
+      height: 212px;
+      width: 900px;
+
+      p {
+        font-size: 1.5rem;
+        line-height: 1.6em;
+      }
+
+      br {
+        display: none;
+      }
+      // .desktop_only {
+      //   display: inline;
+      // }
+    }
+
+    .text_wrap {
+      @include centerComponent();
+    }
+
+
   }
 }

@@ -29,4 +29,10 @@
   .level {
     width: 1.11em;
   }
+
+  @include desktop {
+    .current_player_modal__avatar {
+      @include avatar(10px, 130px);
+    }
+  }
 }

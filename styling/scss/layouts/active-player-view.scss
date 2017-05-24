@@ -1,3 +1,13 @@
-.l-active-player_view {
- //test
+.l-active_player_view {
+
+  @include desktop {
+    .content_wrap {
+      height: 500px;
+      width: 420px;
+    }
+    .button_wrap .button:first-child {
+      margin: 0;
+    }
+  }
+
 }

@@ -29,4 +29,16 @@
       margin-bottom: 80px;
     }
   }
+
+  @include desktop {
+    .content_wrap {
+      font-size: 1.125rem;
+      height: 480px;
+      width: 740px;
+
+      .player_count {
+        bottom: 60px;
+      }
+    }
+  }
 }

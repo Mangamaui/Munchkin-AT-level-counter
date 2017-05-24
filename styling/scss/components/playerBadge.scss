@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   height: 60px;
-  padding: 10px 40px 10px 33px;
+  padding: 10px 12.5vw; // 40/320*100
   position: relative;
   text-align: left;
 
@@ -15,13 +15,20 @@
     z-index: -1;
   }
 
-  &:not(:first-child) {
-    //margin-top: 12px;
+  .mobile_slab {
+    display: block;
+  }
+  .desktop_slab {
+    display: none;
   }
 
   .PlayerBadge_avatar {
     @include avatar(3px, 50px);
     flex-shrink: 0;
+  }
+
+  p {
+    width: auto;
   }
 
   .PlayerBadge_name {
@@ -34,5 +41,44 @@
   .PlayerBadge_level {
     font-size: 1.875rem;
     text-align: right;
+
+  }
+
+  @include desktop {
+    display: inline-block;
+    height: 240px;
+    padding: 35px 20px 20px 20px;
+    text-align: center;
+    width: 172px;
+
+    .mobile_slab {
+      display: none;
+    }
+    .desktop_slab {
+      display: inline-block;
+    }
+
+    .PlayerBadge_avatar {
+      @include avatar(10px, 100px);
+      margin-bottom: 5px;
+    }
+
+    .PlayerBadge_name {
+      font-size: 1.125rem;
+    }
+
+    .PlayerBadge_level {
+      font-size: 2.5rem;
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+    }
+
+    .PlayerBadge_text {
+      display: block;
+      margin: 0;
+      text-align: center;
+      width: 100%;
+    }
   }
 }

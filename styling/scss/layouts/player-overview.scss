@@ -4,4 +4,25 @@
         margin-top: 6px;
     }
   }
+
+  @include desktop {
+    .list_wrap {
+      margin: 0 auto;
+      max-width: 740px;
+      text-align: left;
+    }
+
+    .PlayerBadge {
+      margin-bottom: 20px;
+
+      &:not(:nth-child(3n+3)) {
+        margin-right: 50px;
+      }
+
+      h2 {
+        font-size: 1.875rem;
+        margin-top: 5px;
+      }
+    }
+  }
 }
