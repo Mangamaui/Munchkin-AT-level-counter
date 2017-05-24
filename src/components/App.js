@@ -8,7 +8,7 @@ let getAvatar = require('../lib/avatars').getAvatar;
 let AvatarSelector = require('./AvatarSelector');
 let PlayerBadge = require('./PlayerBadge');
 let CurrentPlayerModal = require('./CurrentPlayerModal');
-let CustomButton = require('./button');
+let CustomButton = require('./CustomButton');
 
 
 class App extends React.Component {
@@ -109,10 +109,12 @@ class App extends React.Component {
     return (
       <div className="l-welcome_view" >
         <div className="content_wrap">
-          <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
-          <p>Welcome to the Munchkin Adventure Time Level Counter!</p>
-          <br />
-          <p>Start tracking your game by clicking "new game".</p>
+          <img className="stone_slab mobile_slab" src="assets/images/stone_slab_300.svg" />
+          <img className="stone_slab desktop_slab" src="assets/images/stone_slab_900.svg" />
+          <div className="text_wrap">
+            <p>Welcome to <br className="desktop_only"/> the Munchkin Adventure Time Level Counter!
+            <br /> Start tracking your game by clicking "new game".</p>
+          </div>
         </div>
         <div className="button_wrap">
           <CustomButton button_class="start-btn button_primary" button_handler={this.newGameHandler.bind(this)} button_text="start new game">
@@ -129,11 +131,15 @@ class App extends React.Component {
       <div>
         <div className="l-new_game_view">
           <div className="content_wrap">
-            <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
+            <img className="stone_slab mobile_slab" src="assets/images/stone_slab_300.svg" />
+            <img className="stone_slab desktop_slab" src="assets/images/stone_slab_740x550.svg" />
+
             <p className="info_text">Start by adding a minimum of 3 players and a maximum of 6 players to your game</p>
             <div className="player_creator">
+              <form onSubmit={this.addPlayerHandler.bind(this)}>
               <AvatarSelector />
               <input className="player_creator__input" type="text" id="playerName" placeholder="player name" onChange={this.changeHandler.bind(this)}/>
+              </form>
             </div>
             <p className="player_count">Players added to the game: <span>{this.state.currentGame.playerList.length}</span></p>
           </div>
@@ -155,8 +161,9 @@ class App extends React.Component {
 
     return (
       <div className="l-player_overview">
-        {list}
-
+        <div className="list_wrap">
+          {list}
+        </div>
         <div className="button_wrap">
           <CustomButton button_class="button_primary" button_handler={this.nextViewHandler.bind(this)} button_text="start playing!">
           </CustomButton>
@@ -184,7 +191,8 @@ class App extends React.Component {
     return (
       <div className="l-winner_view">
         <div className="winner_block content_wrap">
-          <img className="stone_slab" src="assets/images/stone_slab_300.svg" />
+          <img className="stone_slab mobile_slab" src="assets/images/stone_slab_300.svg" />
+          <img className="stone_slab desktop_slab" src="assets/images/stone_slab_740x550.svg" />
           <p className="winner_block__winner">{ACTIVE_PLAYER.name} wins this game!</p>
           <img className="winner_block__avatar" src={getAvatar(ACTIVE_PLAYER.avatar)}/>
 
@@ -204,7 +212,7 @@ class App extends React.Component {
   loadStartHandler() {
     setTimeout(function(){
       this.setState({splash: true});
-    }.bind(this), 1000);
+    }.bind(this), 1200);
   }
 
   newGameHandler() {
@@ -285,6 +293,7 @@ class App extends React.Component {
     this.clearInput();
     this.checkPlayerMinimum();
     this.forceUpdate();
+    e.preventDefault();
   }
 
   clearInput() {
