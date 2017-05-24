@@ -1,10 +1,10 @@
-const avatar = {
+const AVATAR = {
   id: 0,
   name: "",
   img: ""
 }
 
-const avatarList = [
+const AVATARLIST = [
   {
     "id": 1,
     "name": "Finn",
@@ -47,12 +47,12 @@ const avatarList = [
   }
 ];
 
-let availableAvatarList = avatarList.slice();
+let availableAvatarList = AVATARLIST.slice();
 
 module.exports = {
-  avatarList: avatarList,
+  avatarList: AVATARLIST,
   availableAvatarList: availableAvatarList,
-  selectedAvatarID: avatarList[0].id,
+  selectedAvatarID: AVATARLIST[0].id,
   updateAvailableAvatars: function(id) {
     const INDEX = availableAvatarList.findIndex(avatar => avatar.id === id);
     availableAvatarList.splice(INDEX, 1);
@@ -66,15 +66,15 @@ module.exports = {
   },
   getAvatar: function(currentPlayer) {
     const ID = currentPlayer;
-    const image = avatarList.reduce(
+    const IMAGE = AVATARLIST.reduce(
       (acc, avatar) => avatar.id == ID ? avatar.image : acc,
-      avatarList[0].image
+      AVATARLIST[0].image
     );
 
-    return image;
+    return IMAGE;
   },
   resetStates: function() {
-    avatarList.forEach(a => {
+    AVATARLIST.forEach(a => {
       if (availableAvatarList.indexOf(a) == -1) {
         availableAvatarList.push(a);
       }
@@ -86,6 +86,6 @@ module.exports = {
       return 0;
     });
 
-    module.exports.selectedAvatarID = avatarList[0].id;
+    module.exports.selectedAvatarID = AVATARLIST[0].id;
   }
 }
