@@ -44,6 +44,13 @@ button {
   @include bigPhone {
     bottom: 30px;
   }
+
+  @include desktop {
+    .button:first-child {
+      margin-right: 50px;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .button_primary {
@@ -57,7 +64,7 @@ button {
 }
 
 .button_tertiary {
-  @include button-colorScheme($yellow, 20%);
+  //@include button-colorScheme($yellow, 20%);
   font-size: 2rem;
   height: 42px;
   line-height: 1;
@@ -70,12 +77,16 @@ button {
   }
 
   i {
-    left: 0;
-    position: absolute;
+    @include centerComponent;
     z-index: 2;
   }
 
   span {
     display: none;
+  }
+
+  @include desktop {
+    height: 50px;
+    width: 50px;
   }
 }
