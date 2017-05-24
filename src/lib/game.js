@@ -1,6 +1,6 @@
 let player = require('./player');
 
-const game = {
+const GAME = {
   playerList: [],
   activePlayer: null,
   nextPlayer: null,
@@ -52,8 +52,8 @@ const game = {
 
 
 module.exports.create = function() {
-  game.playerList = [];
-  return Object.assign({}, game);
+  GAME.playerList = [];
+  return Object.assign({}, GAME);
 };
 
 module.exports.save = function(game) {
@@ -65,7 +65,7 @@ module.exports.load = function() {
     return false;
   } else {
     let unmergedSaveGame = JSON.parse(localStorage.getItem("previousGame"));
-    let mergedSaveGame =  Object.assign({}, game, unmergedSaveGame);
+    let mergedSaveGame =  Object.assign({}, GAME, unmergedSaveGame);
     mergedSaveGame.saveGame = true;
     mergedSaveGame.playerList = mergedSaveGame.playerList.map(function(p) {
       return Object.assign({}, player.playerObj, p);
