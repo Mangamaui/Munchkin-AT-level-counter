@@ -20,7 +20,7 @@
     margin-top: 30px;
   }
 
-  @include desktop {
+  @include tablet {
     img.desktop_slab {
       display: block;
     }

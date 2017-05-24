@@ -8,7 +8,7 @@
   img {
     @include avatar(5px, 100px);
 
-    @include desktop {
+    @include tablet {
       @include avatar(10px, 160px);
     }
   }

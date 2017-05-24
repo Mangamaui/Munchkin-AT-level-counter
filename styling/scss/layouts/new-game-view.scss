@@ -30,7 +30,7 @@
     }
   }
 
-  @include desktop {
+  @include tablet {
     .content_wrap {
       font-size: 1.125rem;
       height: 480px;
