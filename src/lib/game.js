@@ -75,6 +75,14 @@ module.exports.load = function() {
   }
 };
 
+module.exports.checkIfSaveGameExists = function() {
+  if(!localStorage.getItem("previousGame")) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 module.exports.removeSaveGame = function() {
   localStorage.clear();
 };

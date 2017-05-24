@@ -1,6 +1,7 @@
 let React =  require('react');
 // non-components
 let game = require('../lib/game');
+let checkIfSaveGameExists = require('../lib/game').checkIfSaveGameExists;
 let player = require('../lib/player');
 let avatars = require('../lib/avatars');
 let getAvatar = require('../lib/avatars').getAvatar;
@@ -20,12 +21,17 @@ class App extends React.Component {
       currentGame: null,
       disabled_add_btn: false,
       disabled_start_btn: true,
+      disabled_load_btn: true,
       nextView: null,
       notificationMsg: null,
       playerName: null,
       splash: false,
       tablePosition: 0
     }
+  }
+  componentDidMount() {
+    console.log(checkIfSaveGameExists());
+    this.setState({disabled_load_btn: checkIfSaveGameExists()});
   }
 
   render() {
@@ -119,7 +125,7 @@ class App extends React.Component {
         <div className="button_wrap">
           <CustomButton button_class="start-btn button_primary" button_handler={this.newGameHandler.bind(this)} button_text="start new game">
           </CustomButton>
-          <CustomButton button_class="load-btn button_primary" button_handler={this.loadGameHandler.bind(this)} button_text="load saved game">
+          <CustomButton button_class="load-btn button_primary" button_handler={this.loadGameHandler.bind(this)} disabled={this.state.disabled_load_btn} button_text="load saved game">
           </CustomButton>
         </div>
       </div>
