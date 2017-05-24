@@ -32,8 +32,21 @@
   transform: translateY(-50%);
 }
 
+
+@mixin phoneOnly() {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
 @mixin bigPhone() {
   @media (min-height: #{$big-phone-height}) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media (min-width: #{$tablet-width}) {
     @content;
   }
 }
